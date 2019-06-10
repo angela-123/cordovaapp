@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #bdf{
+                background-color: orangered;
+            }
+        </style>
+    </head>
+    <body>
+    <script>
+        $(document).ready(function(){
+
+            $("#bdf").click(function(){
+                var at = $("#at").val();
+
+                $.ajax({
+                   type:'post',
+                   url:'http://www.sologicentertainments.com/autos/multipledetailsnew.php',
+                   data:'at='+at,
+
+                   success:function(data)
+                   {
+                     $("#gladiators").html(data);
+                   },
+
+                   error:function()
+                   {
+                       $("#gladiators").html('No Network');
+                   }
+
+                })
+
+            })
+
+        })
+    </script>
+        <div class="container-fluid">
+            <div class="row">
+                
+                    <label>automobile types</label>
+                    <input type="text" id="at" class="form-control">
+                    <button class="btn btn-default btn-lg" id="bdf">Search</button>
+
+                
+
+            </div>
+             <div id="gladiators"></div>
+        </div>
+    </body>
+</html>

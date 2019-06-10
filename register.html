@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+
+        <script>
+            $(document).ready(function(){
+
+                $("#spt").click(function(){
+
+                    $.ajax({
+                        type:'post',
+                        url:'http://www.sologicentertainments.com/autos/dealers.html',
+
+                        success:function(data)
+                        {
+                          $("#decoder").html(data);
+                        },
+
+                        error:function()
+                        {
+                            $("#decoder").html('No Network');
+                        }
+                    })
+                })
+            })
+        </script>
+       <div class="container-fluid">
+        <div class = "row">
+            <div class = "col-md-4">
+                <button class = "btn btn-default btn-lg" id = "spt">Spare Parts Dealers</button>
+                <button class = "btn btn-default btn-lg">Mechanics</button>
+                <button class = "btn btn-default btn-lg">Tow Vans</button>
+                <button class = "btn btn-default btn-lg">Panel Beaters</button>
+                <div id = "decoder"></div>
+
+            </div>
+
+        </div>
+
+       </div>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #tavan{
+
+                background:blue;;
+            }
+        </style>
+        
+    </head>
+    <body>
+
+        <script>
+            $(document).ready(function(){
+               
+                $("#tavan").click(function(){})
+                
+                 
+                $.ajax({
+
+                    type:'post',
+                     url:'http://www.sologicentertainments.com/autos/tvans.php',
+                    
+
+                    success:function(data)
+                    {
+                        $("#pilo").html(data);
+                    },
+
+
+                    error:function()
+                    {
+                        $("#pilo").html('No Network');
+                    }
+                })
+            })
+        </script>
+       <div class="container-fluid">
+           <div class="row">
+               <div class = "col-md-4">
+               
+               <button class="btn btn-default btn-lg" id = "tavan">Search For Tow Vans</button>
+               <div id = "pilo"></div>
+               </div>
+           </div>
+
+       </div>
+    </body>
+</html>

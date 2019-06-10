@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        h5{
+            color:orangered;
+            text-align:center;
+            font-size: 2.0em;
+            font-family: Arial Bold;
+
+        }
+        </style>
+    </head>
+    <body>
+         <div id = "iran">
+               <h3>Mechanics,Abuja</h3>
+
+         </div>
+         <script> 
+                var showers = function(){
+                   var pictures = ['FOR AUTO SPARE PARTS ENQUIRIES IN ABUJA','DEAL DIRECTLY WITH SPARE PARTS DEALERS',  'GUDU','APO','KUGBO','UTAKO','AREA 3 ','JABI ','OTHERS'];
+                   var desc = ['images/toyota.jpeg','images/toyota.jpeg','images/toyota.jpeg','images/honda.jpeg','images/merc.png'];
+                     var doc = document.getElementById('iran');
+                     //var dxc = document.getElementById('dookie');
+                     doc.innerHTML =  '<h5>'  +pictures[0] +'<h5>';
+                     //dxc.innerHTML = '<img  src='+ desc[0]+'>';
+                     var i = 0;
+                     var pl = pictures.length;
+                     setInterval(function(){
+                       doc.innerHTML  = '<h5>' +pictures[i]+ '</h5>';
+                       //dxc.innerHTML = '<img class = "img img-responsive img-rounded" src = ' + desc[i]+'>';
+                       i++;
+                       if(i >= pl)
+                       {
+                           i = 0;
+                           doc.innerHTML = '<h5>' +pictures[i]+'</h5>';
+                       }
+                       else{
+                           doc.innerHTML = '<h5>' +pictures[i]+'</h5>';
+                       }
+                       
+                       
+                     },7500);
+                     
+                     console.log(pl);
+                     
+                }
+                   
+                    new showers();
+                </script>
+        
+    </body>
+</html>

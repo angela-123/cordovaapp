@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>autoparesconnect</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+         #tp1,#tp2,#tp3{
+             border: 0px solid darkblue;
+         }
+
+         #tp2{
+             font-size: 8em;
+             color: darkred;
+             text-align: center;
+         }
+
+         h1{
+
+             color:darkorange;
+             font-style: normal;
+             text-align: center;
+
+         }
+
+  
+
+         button{
+
+             width: 100%;
+         }
+
+         #gcfr{
+
+             color:darkred;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+         }
+
+         #bdf{
+
+            background:orangered;
+         }
+
+         #fag{
+            text-align: center;
+            color:darkred;
+            font-style:italics;
+            font-weight:bolder;
+         }
+        
+         img{
+         animation: img-spin infinite 20s linear;
+         height: 40vmin;
+     }
+     @keyframes img-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+         
+        </style>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        ‪<!-- Optional Bootstrap theme -->
+        ‪<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+                  <script src="js/bootstrap.min.js"></script>  
+                  <script src="js/jquery-1.11.3.js"></script>
+                ‪<script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <script>
+
+            $(document).ready(function(){
+
+                $("#spares").click(function(){
+                    $("#mechs").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'spares.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            $("#larje").html('<h1>No Network</h1>');
+                        }
+                        
+
+                    })
+                });
+
+               $("#mechs").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'mechs.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            $("#larje").html('<h1>No Network</h1>');
+                        }
+                        
+
+                    })
+                });
+
+
+$("#mult").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'multiple.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            $("#larje").html('<h1>No Network</h1>');
+                        }
+                        
+
+                    })
+                });
+
+
+            })
+        </script>
+        <div class="container-fluid">
+            
+
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img/bmw.jpg" class="img img-responsive img-rounded" width="100%">
+
+                </div>
+                <div class="col-md-4">
+                    <h1 id="gcfr">Autosparesconnect</h1>
+                      <h6 id = "fag">Nigeria`s auto spare parts dealers platform</h6>
+                    <button class="btn btn-primary btn-lg" id="spares">Spare Part Dealers-Single Search</button><br>
+                    <button class="btn btn-primary btn-lg" id="mult">Spare Part Dealers-Multi Search</button><br>
+                    <button class="btn btn-primary btn-lg" id="mechs">Mechanics</button><br>
+                    <button class="btn btn-primary btn-lg" id="tv">Tow Vans</button><br>
+                    <button class="btn btn-primary btn-lg" id="pb">Panel Beaters</button><br>
+                    <button class="btn btn-primary btn-lg" id="aut">Auto-Electricians</button><br>
+                    <button class="btn btn-primary btn-lg" id="hal">Haulages</button><br>
+                    <div id="larje"></div>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="img/toyotax.png" class="img img-responsive img-rounded" width="100%" height="100%">
+
+                </div>
+
+            </div>
+
+        </div>
+            
+
+        </div>
+    
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #close{
+                background: orangered;
+            }
+        </style>
+    </head>
+    <body>
+
+        <script>
+            $(document).ready(function(){
+                $("#send").click(function(){
+                    var loc = $("#loc").val();
+                    var comm = $("#comm").val();
+                    var cname = $("#cname").val();
+
+                    $.ajax({
+                        type:"post",
+                        url:"http://www.dejek.com.ng/autos/comments.php",
+                        data:"loc="+loc+"&comm="+comm+"&cname="+cname,
+
+                        success:function(data)
+                        {
+                            $("#corado").html(data);
+                        },
+
+                        error:function()
+                        {
+                            $("#corado").html('No Network');
+                        }
+                    })
+
+                })
+
+            })
+        </script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Your Name</label>
+                <input type="text" id="cname" class="form-control">
+                <label>Location</label>
+                <input type="text" id="loc" class="form-control">
+                <label>Your Comments</label>
+                <textarea rows = "10" cols="10" class="form-control" id="comm">
+
+                </textarea>
+
+                <button id="send" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-user"></span> Send</button>
+                <button id="close" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-signal"></span>Close</button>
+                <div id="corado"></div>
+            </div>
+
+        </div>
+  <script>
+      $("#close").click(function(){
+          location.reload();
+      })
+  </script>
+    </div>
+    </body>
+</html>

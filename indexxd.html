@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>autoparesconnect</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+         #tp1,#tp2,#tp3{
+             border: 0px solid darkblue;
+         }
+
+         #tp2{
+             font-size: 8em;
+             color: darkred;
+             text-align: center;
+         }
+
+         h1,h3{
+
+             color:darkorange;
+             font-style: normal;
+             text-align: center;
+
+         }
+
+         #zookie{
+             font-size:1em;
+         }
+         td{
+
+             font-weight:bold;
+             color:black;
+         }
+
+  
+
+         button{
+
+             width: 100%;
+         }
+
+         #gcfr{
+
+             color:darkred;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+         }
+
+         #bdf{
+
+            background:orangered;
+         }
+
+         #fag{
+            text-align: center;
+            color:darkred;
+            font-style:italics;
+            font-weight:bolder;
+         }
+        
+         imgg{
+         animation: img-spin infinite 20s linear;
+         height: 10vmin;
+     }
+     @keyframes imgg-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+ .btn btn-primary btn-lg{
+    border:0px solid black;
+ }
+
+ h2,h4,h3{
+     text-align:center;
+ }
+
+ h2{
+
+     color:darkblue;
+     font-weight:bolder;
+ }
+         
+        </style>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        ‪<!-- Optional Bootstrap theme -->
+        ‪<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+                  <script src="js/bootstrap.min.js"></script>  
+                  <script src="js/jquery-1.11.3.js"></script>
+                ‪<script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+           <script>
+
+            $(document).ready(function(){
+
+                $.ajax({
+                    type:'post',
+                    url:'http://www.sologicentertainments.com/autos/efect.html',
+
+                    success:function(data){
+                        $("#ploho").html(data);
+                    },
+
+                    error:function(){
+                        $("#ploho").html('No Netwok');
+                    }
+
+
+                });
+
+               $.ajax({
+                    type:'post',
+                    url:'http://www.sologicentertainments.com/autos/efect.html',
+                    
+
+                    success:function(data){
+                        $("#zookie").html(data);
+                    },
+
+                    error:function(){
+                        $("#zookie").html('No Netwok');
+                    }
+
+
+                });
+
+                $.ajax({
+                   type:'post',
+                   url:'http://www.sologicentertainments.com/autos/moove.html',
+
+                   success:function(data)
+                   {
+                       $("#zookie").html(data);
+                   },
+
+                   error:function()
+                   {
+                       $("#zookie").html('Not Connected')
+                   }
+
+                });
+
+
+
+                $("#spares").click(function(){
+                    $("#mechs").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'spares.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            $("#larje").html('<h1>No Network</h1>');
+                        }
+                        
+
+                    })
+                });
+
+               $("#mechs").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'mechs.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            $("#larje").html('<h1>No Network</h1>');
+                        }
+                        
+
+                    })
+                });
+          
+               
+
+
+$("#mult").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'multiple.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            $("#larje").html('<h1>No Network</h1>');
+                        }
+                        
+
+                    })
+                });
+
+                $("#chiki").mousemove(function(){
+
+                    //$("#zookie").fadeOut(2000);
+                    //$("#leka").fadeOut(2000);
+
+                })
+
+
+            })
+        </script>
+        <div class="container-fluid">
+            
+
+            
+             
+                 <h3 id = "leka">Auto Spare Parts Dealers,Abuja</h3>
+               <div class = "btn col-md-4 col-md-offset-4" id = "zookie">
+                
+              </div>
+            
+                
+                <div class="col-md-4 col-md-offset-4"  id = "chiki">
+                    
+                    
+                </div>
+                <div id = "larje" class = "col-md-4 col-md-offset-4"></div>
+                
+                
+
+                </div>
+                
+                <div id = "ploho">
+                    Mechanics
+                      
+                        
+                    </div>
+            </div>
+
+        </div>
+            
+
+        </div>
+       
+
+    
+    </body>
+</html>

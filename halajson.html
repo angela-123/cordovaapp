@@ -1,0 +1,103 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    h4{
+      margin-bottom:2px;
+      margin-top:2px;
+      color:darkblue;
+      border:1pt solid white;
+    }
+
+    hr{
+      border:1px black solid;
+      
+    }
+
+    #txt-search{
+      font-size:1.2em;
+      color:black;
+    }
+
+    jumbotron{
+      background-color:white;
+    }
+  </style>
+  <link href="css/onsenui.css" rel="stylesheet">
+        <link href="css/onsen-css-components.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        ‪<!-- Optional Bootstrap theme -->
+        ‪<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="css/ionicons.min.css">
+        <script src="js/onsenui.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-1.11.3.js"></script>
+      ‪<script src="js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+  <div class="container-fluid">
+    <h3>Live Search Tow Vans By Location</h3>
+    <div class="row">
+	<div class=" ">
+        
+          <input type="input" class="form-control" id="txt-search" placeholder="Type your search character">
+        
+	</div>
+	
+</div>
+<div id="filter-records" class="col-md-8"></div>
+  </div>
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    //alert(new Date());
+   data =  [{"coyname":"Sunny Towing Services","location":"Berger","phone":"07031332791,08057757015"},{"coyname":"Nna Bros Towing Van","location":"Berger","phone":"08037175172,08181686686"},{"coyname":"Donfab Rescue","location":"Berger","phone":"08131141705,09081719533"},{"coyname":"Mekus P","location":"Berger","phone":"08037002600,08180666830"},{"coyname":"Fedeco Towing Van","location":"Berger","phone":"08036485632"},{"coyname":"Fela Momoh","location":"kugbo","phone":"08027643631"},{"coyname":"Mohmah Abubakar","location":"kugbo","phone":"08092894966"},{"coyname":"C.C.AGUGUOM","location":"GWARINMPA","phone":"070-3449-7467"}];
+
+$('#txt-search').keyup(function(){
+    
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter-records').html('');
+				return;
+			}
+			
+            var regex = new RegExp(searchField, "i");
+            var output = '<div class="row">';
+            var count = 1;
+            var line = '<hr>';
+			  $.each(data, function(key, val){
+				if ((val.location.search(regex) != -1) || (val.location.search(regex) != -1)) {
+				  output += '<div class="col-md-6 jumbotron ">';
+				  
+				  output += '<div class="col-md-7">';
+				  output += '<h4>' + val.location + '</h4>';
+                  //output += '<hr>';
+                  //output += '<hr>'
+				  output += '<h4>' + val.coyname + '</h4>';
+                 // output += '<hr>';
+                 // line;
+                  // output += '<h4>' + val.market + '</h4>';
+                   //output += '<hr>';
+                   //line;
+                   output += '<h4><a href = tel:>+234-' + val.phone + '</a></h4>';
+                   //output += '<hr>';
+                   //line;
+				  output += '</div>';
+				  output += '</div>';
+				  if(count%2 == 0){
+					output += '</div><div class="row">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</div>';
+			  $('#filter-records').html(output);
+        });
+  });
+</script>

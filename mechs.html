@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #xd,#xdx{
+                background: palevioletred;
+                color: black;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <script>
+            $(document).ready(function(){
+
+                $("#xd").click(function(){
+
+                    var mech = $("#mech").val()
+
+                    $.ajax({
+                        type:'post',
+                       // url:'http://www.sologicentertainments.com/autos/mechs.php',
+                       url:'http://www.dejek.com.ng/autos/mechs.php',
+                        data:'mech='+mech,
+
+                        success:function(data){
+                          $("#eva").html(data);
+                        },
+
+                        error:function(){
+                            $("#eva").html('<h1>No Network</h1>');
+                        }
+
+                    })
+                })
+
+            })
+        </script>
+        <div class="container-fluid" id = "obah">
+            <div class="row">
+                
+                    <label class = "button--large--cta">automobile type</label>
+                    <input type="text" id="mech" class="form-control">
+                    <div class="btn-group">
+                            <button class="button--large--cta" id="xd"><span class="glyphicon glyphicon-search"></span>  SearchFor Mechanics</button>
+                            <button class= "button--large--cta" id="xdx"><span class="glyphicon glyphicon-star"></span> Close</button>
+                            
+                            </div>
+                    
+            
+
+            </div>
+             <div id="eva"></div>
+        </div>
+
+        <script>
+            $("#xdx").click(function(){
+
+                location.reload();
+
+
+            })
+        </script>
+    </body>
+</html>

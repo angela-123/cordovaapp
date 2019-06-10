@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        doc{
+            background:lightblue;
+        }
+        </style>
+    </head>
+    <body>
+         <div id = "iran">
+
+
+         </div>
+         <script> 
+                var shows = function(){
+                   var pictures = ['Nwa South Holdings Nig,Apo','Mobison,Apo','Blesed Igwe motors.Apo','Okey Seamer invest.co','Akubue Global Links,Apo','Double Standing Investment,Apo','A.N OKORO And SONS ENT,ZUBA','A.U.Cico  C. Invent. co.ltd,Apo','Asiway Nig Ltd','BLESSED EJIKY INT\'L AGENCY,Gudu','Blessed Basil,Apo','cameroun enter-biz,Apo','C-ROCKY INTEGRATED CONCPT LTD,Zuba','Confidence Levi,Kugbo','CURTIS - MEFUNA Investment Company,Zuba','Cyril Holding,Utako','CJ Sunny Joe Nig. Ent,Zuba','Emma japan West Africa,Apo','EMMA VENTURE NIG.Zuba','Geat X Bright Multiple Option Investment Nig,Apo','KEN GERMAN VENTURE NIG LTD,Gudu','Jonec Investment Co.,Apo','Mma-Agha Global Links Limited,Zuba','MAN KENNZEE INT\'L LTD.Gudu','Ohalism Inter,Utako'];
+                   var desc = ['images/toyota.jpeg','images/toyota.jpeg','images/toyota.jpeg','images/honda.jpeg','images/merc.png'];
+                     var doc = document.getElementById('zookie');
+                     //var dxc = document.getElementById('dookie');
+                     doc.innerHTML =  '<h5>'  +pictures[0] +'<h5>';
+                     //dxc.innerHTML = '<img  src='+ desc[0]+'>';
+                     var i = 0;
+                     var pl = pictures.length;
+                     setInterval(function(){
+                       doc.innerHTML  = '<h5>' +pictures[i]+ '</h5>';
+                       //dxc.innerHTML = '<img class = "img img-responsive img-rounded" src = ' + desc[i]+'>';
+                       i++;
+                       if(i >= pl)
+                       {
+                           i = 0;
+                           doc.innerHTML = '<h5>' +pictures[i]+'</h5>';
+                       }
+                       else{
+                           doc.innerHTML = '<h5>' +pictures[i]+'</h5>';
+                       }
+                       
+                       
+                     },2000);
+                     
+                     console.log(pl);
+                     
+                }
+                   
+                    new shows();
+                </script>
+
+
+        
+    </body>
+</html>

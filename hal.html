@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            #plx{
+
+                background: navy;
+                color: white;
+            }
+
+            #paulo{
+
+                background: lightseagreen;
+                color: darkred;
+            }
+        </style>
+        
+    </head>
+    <body>
+
+        <script>
+            $(document).ready(function(){
+               $("#paulo").click(function(){
+
+                $.ajax({
+
+                    type:"post",
+                    url:'http://www.dejek.com.ng/autos/hal.php',
+
+                    success:function(data)
+                    {
+                        $("#fada").html(data);
+                    },
+
+                    error:function()
+                    {
+                        $("#fada").html('<h3><span class = "glyphicon glyphicon-signal"></span>No Network</h3>')
+                    }
+
+
+                })
+               })
+
+            })
+        </script>
+    <div class="container-fluid" id="mojo">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="btn-group">
+                <button class="btn btn-default btn-lg" id="paulo"><span class="glyphicon glyphicon-signal"></span> Search For Rental Trucks</button>
+                <button class="btn btn-default btn-lg" id="plx"><span class="glyphicon glyphicon-cloud"></span> Close</button>
+                
+                </div>
+            </div>
+            <div id="fada" class="col-md-4"></div>
+        </div>
+
+    </div>
+
+    <script>
+        $("#plx").click(function(){
+
+            $("#mojo").fadeOut(1000);
+        })
+    </script>
+    </body>
+</html>

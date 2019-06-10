@@ -1,0 +1,3147 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    h4{
+      margin-bottom:2px;
+      margin-top:2px;
+      color:red;
+      border:1pt solid white;
+      font-size:1.1em;
+    }
+
+    hr{
+      border:1px black solid;
+      
+    }
+
+    h3{
+
+      color:darkblue;
+      font-family:tahoma;
+    }
+
+    #txt-search{
+      font-size:1.2em;
+      color:black;
+      border:1px black solid;
+      background-color:lightblue;
+    }
+
+    
+  </style>
+  <link href="css/onsenui.css" rel="stylesheet">
+        <link href="css/onsen-css-components.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        ‪<!-- Optional Bootstrap theme -->
+        ‪<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="css/ionicons.min.css">
+        <script src="js/onsenui.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-1.11.3.js"></script>
+      ‪<script src="js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+  <div class="container-fluid">
+    <h3>Live Search-Other-Automobiles</h3>
+    <div class="row">
+	<div class=" ">
+        
+          <input type="input" class="form-control" id="txt-search" placeholder="Type your search character">
+        
+	</div>
+	
+</div>
+<div id="filter-records" class="col-md-8"></div>
+  </div>
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    //alert(new Date());
+var data = [
+    {
+    "dealerid": "32",
+    "name": "J.F amaco gobal link ltd",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda and mitsubishi",
+    "contactperson": "Amaaechi F onyia",
+    "contactphone": "08035907405",
+    "othernos": "08091300104"
+    },
+    {
+    "dealerid": "33",
+    "name": "Hilo ",
+    "location": "Abuja",
+    "market": "Apo libarty line ",
+    "majorbrand": "Toyota",
+    "otherbrands": "nissan mazda ",
+    "contactperson": "HILLARY OKONKWO",
+    "contactphone": "08064078850",
+    "othernos": "08020901809"
+    },
+    {
+    "dealerid": "34",
+    "name": "Chiboy",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "car stario all brand",
+    "contactperson": "nwachukwu wisdom ",
+    "contactphone": "08033051331",
+    "othernos": "08137565431"
+    },
+    {
+    "dealerid": "35",
+    "name": "NWA SOUTH HOLDINGS NIG",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Kia Hyudai and Mitsubish",
+    "contactperson": "Eneh joe sunday",
+    "contactphone": "08035926546",
+    "othernos": "08187384602"
+    },
+    {
+    "dealerid": "36",
+    "name": "Stev Holdings Nig",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Datsun mitsubishi",
+    "contactperson": "Steven Okere",
+    "contactphone": "08038740967",
+    "othernos": "08180266418"
+    },
+    {
+    "dealerid": "37",
+    "name": "Blessed Osimac",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan and mitsibushi",
+    "contactperson": "Osita unegbu",
+    "contactphone": "08069168595",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "38",
+    "name": "Remy martin auto invest.Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "nissan mitsubish",
+    "contactperson": "Remijus Offor",
+    "contactphone": "080-3332-0679",
+    "othernos": ""
+    },
+    {
+    "dealerid": "39",
+    "name": "scota invitemant nig",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "All jepenies",
+    "contactperson": "Okwudiri Achine",
+    "contactphone": "08160882284",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "40",
+    "name": "Danco worldwide",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Kia ,hyudai and mitsibushi",
+    "contactperson": "Denis Ezeuguw",
+    "contactphone": "08085663905",
+    "othernos": "08189885582"
+    },
+    {
+    "dealerid": "41",
+    "name": "Blessed Basil",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Datsun and Mitsubishi",
+    "contactperson": "Obasi Nwaaeza",
+    "contactphone": "07042460555",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "42",
+    "name": "Blesed Chukwunoso Investment",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, mazda,and mitsibishi",
+    "contactperson": "chukwunoso",
+    "contactphone": "08037008233",
+    "othernos": "08025942382"
+    },
+    {
+    "dealerid": "43",
+    "name": "johnson interprises",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nisanandmitsibishi",
+    "contactperson": "Johnson Obidi",
+    "contactphone": "08039677210",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "44",
+    "name": "Chidix investmnet",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda Nisan mitsibushi",
+    "contactperson": "Chikwudi N WEKE",
+    "contactphone": "08027219172",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "45",
+    "name": "Anyi king international",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan ",
+    "contactperson": "Ifeanyi Nwaoyishi",
+    "contactphone": "07088013856",
+    "othernos": "07036409541"
+    },
+    {
+    "dealerid": "46",
+    "name": "Mobison",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Nissan",
+    "otherbrands": "AND ALL JAPANIESS",
+    "contactperson": "Amaobichukwu agha",
+    "contactphone": "07067830808",
+    "othernos": "08029798459"
+    },
+    {
+    "dealerid": "47",
+    "name": "Blesed Igwe motors ",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mitsibushi Nisan ",
+    "contactperson": "igwe ejike",
+    "contactphone": "08036312548",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "48",
+    "name": "Bon Bon ",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "All jappeniess",
+    "contactperson": "borniface ugu",
+    "contactphone": "08055083170",
+    "othernos": "08104581597"
+    },
+    {
+    "dealerid": "49",
+    "name": "Divine Sueccess Holding Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "lexus Mazda, mitsubishi",
+    "contactperson": "Nonvo Ejike",
+    "contactphone": "08060544883",
+    "othernos": "08169916551"
+    },
+    {
+    "dealerid": "50",
+    "name": "De joebros Comm.Agancy Nig.",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan HondaAnd Mitsubishi",
+    "contactperson": "joseph Ugboaku",
+    "contactphone": "08035901099",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "54",
+    "name": "Crisbon Investment Co.",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Ford, Chevrolet, peugeot,",
+    "contactperson": "Crescent Abonyi",
+    "contactphone": "08037039876",
+    "othernos": "08084702742"
+    },
+    {
+    "dealerid": "55",
+    "name": "Sssytex Global Nigeria",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nisan",
+    "contactperson": "Osita Nnamchi",
+    "contactphone": "08061261308",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "59",
+    "name": "Okechukwu O Alaebo",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan",
+    "contactperson": "Okechukwu O Alaebo",
+    "contactphone": "08065285328",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "61",
+    "name": "Akubue Global Links ",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Honda",
+    "otherbrands": "Toyota nissan mitsibushi Engine",
+    "contactperson": "Arinze C. Akubue",
+    "contactphone": "08035898834",
+    "othernos": "08184860794, 08122520850"
+    },
+    {
+    "dealerid": "62",
+    "name": "R.K.C Plaza",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Honda",
+    "otherbrands": "All kind of battary",
+    "contactperson": "Emmanuel Oboh",
+    "contactphone": "07031106711",
+    "othernos": "08056380889"
+    },
+    {
+    "dealerid": "63",
+    "name": "Good People concept",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Honda",
+    "otherbrands": "All type of japaniese",
+    "contactperson": "CHUKUWANI C CHUKWUANI",
+    "contactphone": "08067365963",
+    "othernos": "08184920989"
+    },
+    {
+    "dealerid": "64",
+    "name": "Ama And Son Investment",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Nissan",
+    "otherbrands": "All japanese Suspentions",
+    "contactperson": "Amaobi Oguama",
+    "contactphone": "08036021289",
+    "othernos": "08085918100 08029363053"
+    },
+    {
+    "dealerid": "65",
+    "name": "Cassa .B International Agency",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "All japaniess suspention",
+    "contactperson": "Okechukwu C",
+    "contactphone": "0 8037440520",
+    "othernos": "08066049983"
+    },
+    {
+    "dealerid": "68",
+    "name": "Tochuks ",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "All japanese suspentions",
+    "contactperson": "Tochukwu Aanuligwu",
+    "contactphone": "08034226176",
+    "othernos": "08184860800"
+    },
+    {
+    "dealerid": "70",
+    "name": "Jonec Investment Co",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": "Kia hyundai",
+    "contactperson": "Joseph Ubah",
+    "contactphone": "07036019894",
+    "othernos": "08055943730"
+    },
+    {
+    "dealerid": "71",
+    "name": "Anico Auto Investment",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Mitsibushi",
+    "contactperson": "Ernest C.Okoro",
+    "contactphone": "08035960490",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "73",
+    "name": "Samloko And co.",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nisan mazda, mitsibushi ",
+    "contactperson": "Samuel Emeka",
+    "contactphone": "08065518130",
+    "othernos": "07039158714 "
+    },
+    {
+    "dealerid": "74",
+    "name": "Emma japan West Africa",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Honda",
+    "otherbrands": "Nissan mitsibushi ",
+    "contactperson": "Emmanuel O Onyeaka",
+    "contactphone": "08035463672",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "75",
+    "name": "Nwachinaemere Investment.Co",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Honda",
+    "otherbrands": "Hyundai ",
+    "contactperson": "Nwaduogbu chibyke",
+    "contactphone": "07036389742",
+    "othernos": "08093981179"
+    },
+    {
+    "dealerid": "77",
+    "name": "Mekino automobil links",
+    "location": "Abuja",
+    "market": "apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda, hyundai, mitsubishi",
+    "contactperson": "Emeka Agb0",
+    "contactphone": "080-3517-3605",
+    "othernos": "081-3755-3043"
+    },
+    {
+    "dealerid": "78",
+    "name": "De Great Man",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda, mitsubushi, nissan, mitsubushi",
+    "contactperson": "Umeh Henry",
+    "contactphone": "070-6785-8446 ",
+    "othernos": "080-88244-1669"
+    },
+    {
+    "dealerid": "79",
+    "name": "Mr joe bright auto parts",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda nissan mitsubishi",
+    "contactperson": "Madu emeka ",
+    "contactphone": "080-6434-7735",
+    "othernos": "080-9554-76894 "
+    },
+    {
+    "dealerid": "80",
+    "name": "Franco free investment nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda nissan mitsubishi",
+    "contactperson": "Francis Nwanegbo",
+    "contactphone": "080-3463-6051",
+    "othernos": ""
+    },
+    {
+    "dealerid": "81",
+    "name": "blessed henry invest nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan mazda mitsubishi",
+    "contactperson": "Henry igwe",
+    "contactphone": "070-6683-7296",
+    "othernos": "081-8037-0359"
+    },
+    {
+    "dealerid": "83",
+    "name": "uwaoma Services ",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan mazda mitsubishi infinity lexus",
+    "contactperson": "edeh Okwudiri",
+    "contactphone": "080-6079-4585",
+    "othernos": ""
+    },
+    {
+    "dealerid": "85",
+    "name": "Blessed Suny",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda nissan mitbubishi",
+    "contactperson": "Sunday Anyadiegwu",
+    "contactphone": "080-6905-6173",
+    "othernos": ""
+    },
+    {
+    "dealerid": "88",
+    "name": "cameroun enter-biz",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda nissan mitsubishi ",
+    "contactperson": "Ene Leonard",
+    "contactphone": "080-6964-2391",
+    "othernos": ""
+    },
+    {
+    "dealerid": "90",
+    "name": "Pan Auto Link",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Toyota",
+    "contactperson": "Umehe Panteleon",
+    "contactphone": "080-5615-7992",
+    "othernos": "070-2603-4078"
+    },
+    {
+    "dealerid": "91",
+    "name": "Pan Auto Link",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Toyota",
+    "contactperson": "Umehe Panteleon",
+    "contactphone": "080-5615-7992",
+    "othernos": "070-2603-4078"
+    },
+    {
+    "dealerid": "92",
+    "name": "Inno-max intercont.Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "nissan mitsubishi honda datsun",
+    "contactperson": "Innocent onyemara",
+    "contactphone": " 080-6597-7821",
+    "othernos": "070-3095-1991"
+    },
+    {
+    "dealerid": "97",
+    "name": "Blessed nomass auto lamp invest.co.nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "nissan mazda mitsubishi ",
+    "contactperson": "Chinonso ugbo",
+    "contactphone": "080-3388-1822",
+    "othernos": ""
+    },
+    {
+    "dealerid": "98",
+    "name": "Blessed innoma",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan mazda mitsubishi ",
+    "contactperson": "Nze Innocent Ndubuisi",
+    "contactphone": "070-6820-5900",
+    "othernos": ""
+    },
+    {
+    "dealerid": "99",
+    "name": "Okeson 96 ventures",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Hyundai kia mazda ",
+    "contactperson": "Nwachukwu Okechukwu",
+    "contactphone": "080-6309-4399",
+    "othernos": "080-6538-2623"
+    },
+    {
+    "dealerid": "101",
+    "name": "Blessed Clean Guy",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan mazda mitsubishi kia",
+    "contactperson": "vincent nweke",
+    "contactphone": "070-6877-7943",
+    "othernos": "081-8195-6649"
+    },
+    {
+    "dealerid": "102",
+    "name": "De Goodlock Global Agency Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda mitsubishi nissan kia ford hyundai",
+    "contactperson": "Obumneme Ikechukwu Arinze ",
+    "contactphone": "080-3562-5577",
+    "othernos": "081-0298-1889"
+    },
+    {
+    "dealerid": "103",
+    "name": "De Goodlock Global Agency Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "mazda mitsubishi nissan kia ford hyundai",
+    "contactperson": "Obumneme Ikechukwu Arinze ",
+    "contactphone": "080-3562-5577",
+    "othernos": "081-0298-1889"
+    },
+    {
+    "dealerid": "105",
+    "name": "Geat X Bright Multiple Option Investment Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Mitsubishi Hyundai Kia",
+    "contactperson": "Nwaka Osinachi",
+    "contactphone": "081-4421-6068",
+    "othernos": "070-4084-9975"
+    },
+    {
+    "dealerid": "106",
+    "name": "A.U.Cico C. Invent. co.ltd",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda nissan mitsubishi hyundai ",
+    "contactperson": "Chukwudi C Nweke",
+    "contactphone": "080-3592-7081, ",
+    "othernos": "080-5620-0543"
+    },
+    {
+    "dealerid": "108",
+    "name": "Chimark Japan Invest. C0. NIG",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsubishi Honda Isuzu",
+    "contactperson": "Meniru Innocent",
+    "contactphone": "080-3966-7848",
+    "othernos": "080-5597-8883"
+    },
+    {
+    "dealerid": "109",
+    "name": "Chimark Japan Invest. C0. NIG",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsubishi Honda Isuzu",
+    "contactperson": "Meniru Innocent",
+    "contactphone": "080-3966-7848",
+    "othernos": "080-5597-8883"
+    },
+    {
+    "dealerid": "111",
+    "name": "HI OJJEH NIG.ENTERPRISES",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsibushi Honda",
+    "contactperson": "Hycenth Onyegbunam",
+    "contactphone": "080-5274-1816",
+    "othernos": "081-3665-2998"
+    },
+    {
+    "dealerid": "112",
+    "name": "HI OJJEH NIG.ENTERPRISES",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsibushi Honda",
+    "contactperson": "Hycenth Onyegbunam",
+    "contactphone": "080-5274-1816",
+    "othernos": "081-3665-2998"
+    },
+    {
+    "dealerid": "114",
+    "name": "Gen Best Enter",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Isuzu Nissan Kia",
+    "contactperson": "Eugene Agu",
+    "contactphone": "080-3685-3238",
+    "othernos": ""
+    },
+    {
+    "dealerid": "115",
+    "name": "Chicon Auto Links",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Mitsubishi",
+    "contactperson": "Chikwado J. Okoh",
+    "contactphone": "080-6638-6051",
+    "othernos": "081-7105-0899"
+    },
+    {
+    "dealerid": "116",
+    "name": "Life Radiator",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsubishi Hyundai ",
+    "contactperson": "Ndubisi Onyia",
+    "contactphone": "080-6531-1407",
+    "othernos": "080-9474-2739"
+    },
+    {
+    "dealerid": "117",
+    "name": "Eze Okpoko 1 Nig Enterprises",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": "Hyundai Kia Tojota",
+    "contactperson": "Okolie Sunday",
+    "contactphone": "080-6005-8808",
+    "othernos": ""
+    },
+    {
+    "dealerid": "118",
+    "name": "N. Veron Holdings Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mitsubishi Isuzu Mazda",
+    "contactperson": "Nsofor Ndubuisi",
+    "contactphone": "081-6496-4283",
+    "othernos": "070-3679-9177"
+    },
+    {
+    "dealerid": "121",
+    "name": "DE GREAT UCHESON HOLDINGS",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Honda",
+    "otherbrands": "Suzuki Subaru Daihatsu Marruti Kia Hyundai",
+    "contactperson": "Uchechukwum Igwe",
+    "contactphone": "070-3300-7090",
+    "othernos": "070-8366-4232"
+    },
+    {
+    "dealerid": "123",
+    "name": "Erico Investment company Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda mazda nissan mitsubishi",
+    "contactperson": "Muoghalu N.F.Eric",
+    "contactphone": "080-3800-7530",
+    "othernos": "081-7186-0902"
+    },
+    {
+    "dealerid": "124",
+    "name": "Erico Investment company Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda mazda nissan mitsubishi",
+    "contactperson": "Muoghalu N.F.Eric",
+    "contactphone": "080-3800-7530",
+    "othernos": "081-7186-0902"
+    },
+    {
+    "dealerid": "125",
+    "name": "Erico Investment company Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda mazda nissan mitsubishi",
+    "contactperson": "Muoghalu N.F.Eric",
+    "contactphone": "080-3800-7530",
+    "othernos": "081-7186-0902"
+    },
+    {
+    "dealerid": "129",
+    "name": "ILEM-IYKE GLOBAL MERCHANDISE LTD",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsubishi",
+    "contactperson": "Ilechukwu Ikenna",
+    "contactphone": "080-6780-1955",
+    "othernos": "080-3670-5256"
+    },
+    {
+    "dealerid": "130",
+    "name": "Charleasea Enter.Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Chrysler, Cheroke, Navigator ",
+    "contactperson": "Charles .C.Okanumeh",
+    "contactphone": "080-3953-9995",
+    "othernos": "081-7988-9211"
+    },
+    {
+    "dealerid": "131",
+    "name": "ILEM-IYKE GLOBAL MERCHANDISE LTD",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Ford, Navigator, Kia",
+    "contactperson": "Ilechukwu Ikenna",
+    "contactphone": "080-6780-1955",
+    "othernos": "080-3670-5256"
+    },
+    {
+    "dealerid": "132",
+    "name": "Auto Kings Nig Ltd",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Mitsubishi",
+    "contactperson": "Kingsley Oluji",
+    "contactphone": "080-6225-8068",
+    "othernos": "080-5139-1599"
+    },
+    {
+    "dealerid": "133",
+    "name": "Ozi Best Investment Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "peugeot, nissan, mazda, mitsubishi",
+    "contactperson": "Ozoemena Nweke",
+    "contactphone": "080-6288-2910",
+    "othernos": ""
+    },
+    {
+    "dealerid": "134",
+    "name": "DE GREAT KWAKWAS",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "kia Hundai Mazda Mitsubishi ",
+    "contactperson": "Nwaobodo C Elisha",
+    "contactphone": "080-3319-9328",
+    "othernos": ""
+    },
+    {
+    "dealerid": "135",
+    "name": "Double Standing Investment",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Mitsubishi Kia",
+    "contactperson": "Livenous Nweke",
+    "contactphone": "070-3397-0982",
+    "othernos": ""
+    },
+    {
+    "dealerid": "144",
+    "name": "BABA U.C BUMPER INVESTMENT",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Mazda, mitsubishi",
+    "contactperson": "Uche Eze",
+    "contactphone": "080-3965-8777",
+    "othernos": ""
+    },
+    {
+    "dealerid": "147",
+    "name": "OBISCO INVESTMENT COMPANY",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda, Nissan, Hyundai, kia",
+    "contactperson": "Nwokedi Obinna",
+    "contactphone": "080-6079-9075",
+    "othernos": ""
+    },
+    {
+    "dealerid": "149",
+    "name": "HAPPY MAZDA INVESTMENT CO. NIG",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Honda Hyundai",
+    "contactperson": "Ikenna Esianaa",
+    "contactphone": "080-3291-3332",
+    "othernos": "080-3332-1695"
+    },
+    {
+    "dealerid": "162",
+    "name": "ARIB0RN INVESTMENT .CO",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan Hyundai Kia",
+    "contactperson": "Ozor Gabriel Arinze",
+    "contactphone": "070-6569-4064",
+    "othernos": ""
+    },
+    {
+    "dealerid": "170",
+    "name": "Daniel Investment Nig",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Hyundai",
+    "contactperson": "Chukwu Daniel",
+    "contactphone": "081-6379-3810",
+    "othernos": "070-8380-0068"
+    },
+    {
+    "dealerid": "171",
+    "name": "Okwutex Invventment Nig",
+    "location": "Abuja",
+    "market": "Apo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan mazda mitsubishi Hyundai",
+    "contactperson": "Okwudiri Okeke",
+    "contactphone": "081-00082143",
+    "othernos": ""
+    },
+    {
+    "dealerid": "172",
+    "name": "U.King Auto Lamps",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan mitsubishi",
+    "contactperson": "Uzochukwu Elem",
+    "contactphone": "080-3621-7894",
+    "othernos": "081-8492-2006"
+    },
+    {
+    "dealerid": "173",
+    "name": "U.King Auto Lamps",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Nissan mitsubishi Hyundai Kai Honda",
+    "contactperson": "Uzochukwu Elem",
+    "contactphone": "080-3621-7894",
+    "othernos": "081-8492-2006"
+    },
+    {
+    "dealerid": "180",
+    "name": "EMMACO AUTO LINK NIG",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Kia Honda Mazda",
+    "contactperson": "Emmanuel Okwuba",
+    "contactphone": "080-6155-6814",
+    "othernos": "081-8752-1300"
+    },
+    {
+    "dealerid": "181",
+    "name": "EMMACO AUTO LINK NIG",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Kia Honda Mazda",
+    "contactperson": "Emmanuel Okwuba",
+    "contactphone": "080-6155-6814",
+    "othernos": "081-8752-1300"
+    },
+    {
+    "dealerid": "182",
+    "name": "FRIYOO INVESTMENT NIG",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Datsun, Mazda, Nissan mitsubushi",
+    "contactperson": "Friday Ugwu",
+    "contactphone": "080-6457-0900",
+    "othernos": "080-7132-0666"
+    },
+    {
+    "dealerid": "184",
+    "name": "KENDO WEST TRADING CO. NIG.LTD",
+    "location": "Abuja",
+    "market": "Apo ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda  Nissan Mitsubishi",
+    "contactperson": "Kenechukwu Prosper Nweke",
+    "contactphone": "080-7880-4889",
+    "othernos": "080-6449-4610"
+    },
+    {
+    "dealerid": "185",
+    "name": "ECHEZONACHUKWU COMPANY NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mitsubushi Mazda ",
+    "contactperson": "Echezona C Amaefuna",
+    "contactphone": "080-6540-6688",
+    "othernos": ""
+    },
+    {
+    "dealerid": "186",
+    "name": "SYROCO INTERNATIONAL COMPANY",
+    "location": "Abuja",
+    "market": "Apo Maarket",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Mitsubishi Hyundai Hunda",
+    "contactperson": "Sylvanus Udezuka",
+    "contactphone": "080-3475-5419",
+    "othernos": ""
+    },
+    {
+    "dealerid": "187",
+    "name": "SYROCO INTERNATIONAL COMPANY",
+    "location": "Abuja",
+    "market": "Apo Maarket",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Mitsubishi Hyundai Hunda",
+    "contactperson": "Sylvanus Udezuka",
+    "contactphone": "080-3475-5419",
+    "othernos": ""
+    },
+    {
+    "dealerid": "188",
+    "name": "ONYETRACO AUTO SERVICE NIG.LTD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Honda Hyundai Kia Mazda",
+    "contactperson": "Onyekachi Nwankwo",
+    "contactphone": "080-3673-1824",
+    "othernos": "080-9896-5931"
+    },
+    {
+    "dealerid": "189",
+    "name": "JIMMY INVESTMENT NIG LTD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda, Nissan, Datsun Isuzu, Mitsubishi",
+    "contactperson": "Jeminus N Onah",
+    "contactphone": "080-3320-7986",
+    "othernos": "081-2551-1226"
+    },
+    {
+    "dealerid": "193",
+    "name": "BLESSED R.D VENTURES NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Nissan Mazda Toyota etc",
+    "contactperson": "Rapuluchukwu Donatus Nwabueze",
+    "contactphone": "080-3216-8807",
+    "othernos": "081-7857-7587"
+    },
+    {
+    "dealerid": "194",
+    "name": "BLESSED ANYA GOD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Nissan Honda Toyota",
+    "contactperson": "Nwankwo Emmanuel",
+    "contactphone": "070-3585-0801",
+    "othernos": "081-0049 1559 "
+    },
+    {
+    "dealerid": "195",
+    "name": "DOZIE GROUP NIG .LTD.",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "",
+    "contactperson": "Ugwu Dozie",
+    "contactphone": "080-6237-4724",
+    "othernos": "080-3689-6341"
+    },
+    {
+    "dealerid": "198",
+    "name": "U.E BEN BRIGHT NIG LTD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "",
+    "contactperson": "Benjamin Ukueze",
+    "contactphone": "080-3690-7584",
+    "othernos": ""
+    },
+    {
+    "dealerid": "200",
+    "name": "FRAYOO AUTO LINK NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Nissan Mazda Honda Mitsubishi Toyota Kiao",
+    "contactperson": "Friday Ugwu",
+    "contactphone": "080-3631-4131",
+    "othernos": "080-2505-1886"
+    },
+    {
+    "dealerid": "202",
+    "name": "S.P NNANNA AUTO SPARE PARTS",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "All kinds of model",
+    "contactperson": "Samuel.P.Nnanna ",
+    "contactphone": "080-3601-4446",
+    "othernos": "070-2667-0961"
+    },
+    {
+    "dealerid": "204",
+    "name": "GOD FIRST  LTD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Nissan, Mazda, Toyota, Motor Batteries",
+    "contactperson": "Onah Brendan.c.",
+    "contactphone": "080-3845-0201",
+    "othernos": "070-4473-9213 080-5716-0087"
+    },
+    {
+    "dealerid": "209",
+    "name": "OZOR TECH NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "All kinds of peugeot part ",
+    "contactperson": "Silvester ekwe",
+    "contactphone": "080-3644-9077",
+    "othernos": ""
+    },
+    {
+    "dealerid": "212",
+    "name": "CHI BROS AUTO EQUIPMENT LTD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot Part",
+    "contactperson": "Chikwunenye Enyioma",
+    "contactphone": "080-3311-5002",
+    "othernos": "080-9494-2884"
+    },
+    {
+    "dealerid": "214",
+    "name": "SEQUENCE AUTO SPEAR PARTS VENTURE",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot parts",
+    "contactperson": "Chinedu Iloabuchi",
+    "contactphone": "080-3883-1194",
+    "othernos": ""
+    },
+    {
+    "dealerid": "215",
+    "name": "TONY GREAT AUTO COMPANY",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot 206, 207, 307, 308, 406, 407, 408, 508",
+    "contactperson": "Anthony. E. Ibeh",
+    "contactphone": "080-3375-1614",
+    "othernos": ""
+    },
+    {
+    "dealerid": "217",
+    "name": "OBESCO HOLDINGS",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Car Battery",
+    "contactperson": "Obed Onyeanusi",
+    "contactphone": "080-3633-3555",
+    "othernos": "070-2531-7820 080-5526-2693"
+    },
+    {
+    "dealerid": "219",
+    "name": "ENYI AUTO COOL.NIG.",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Peugeot",
+    "otherbrands": "All kinds of car AC. ",
+    "contactperson": "Sunday Orji",
+    "contactphone": "080-3605-4855",
+    "othernos": "070-2545-1134"
+    },
+    {
+    "dealerid": "220",
+    "name": "DE MONDAY KIA",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Kia",
+    "otherbrands": "Hyundai",
+    "contactperson": "Monday Nwodo",
+    "contactphone": "080-3915-8611",
+    "othernos": "070-2608-0869"
+    },
+    {
+    "dealerid": "228",
+    "name": "ONYE TEX ENTERPRISES NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda parts",
+    "contactperson": "Onyebuchi Duru",
+    "contactphone": "081-3723-8664",
+    "othernos": "080-2093-7421"
+    },
+    {
+    "dealerid": "231",
+    "name": "SMIT HONDA",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda Engieen",
+    "contactperson": "keletus anyawu",
+    "contactphone": "080-6543-1283",
+    "othernos": "000"
+    },
+    {
+    "dealerid": "232",
+    "name": "JAH RULE GLOBAL CO.LTD",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda Parts",
+    "contactperson": "Nnokwutem Onyeka",
+    "contactphone": "080-3344-5092",
+    "othernos": "00000"
+    },
+    {
+    "dealerid": "233",
+    "name": "WARREN G. INVESTMENT LTD ONIMISI ASSOCIATES",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda parts",
+    "contactperson": "Alh churks w. nwabundu",
+    "contactphone": "080-3845-7076",
+    "othernos": "070-4086-2321 or 070-3773-8023"
+    },
+    {
+    "dealerid": "234",
+    "name": "WARREN G. INVESTMENT LTD AND\\ ONIMISI ASSOCIATES",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda parts",
+    "contactperson": "Alh churks w. nwabundu",
+    "contactphone": "080-3845-7076",
+    "othernos": "070-4086-2321 or 070-3773-8023"
+    },
+    {
+    "dealerid": "235",
+    "name": "OBIORA UDEH AUTO INVESTMENT CO.NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda Engieen",
+    "contactperson": "OBIORA UDEH",
+    "contactphone": "070-6317-7763",
+    "othernos": ""
+    },
+    {
+    "dealerid": "236",
+    "name": "OBIORA UDEH AUTO INVESTMENT CO.NIG",
+    "location": "Abuja",
+    "market": "Apo market",
+    "majorbrand": "Honda",
+    "otherbrands": "Honda Engieen",
+    "contactperson": "OBIORA UDEH",
+    "contactphone": "070-6317-7763",
+    "othernos": ""
+    },
+    {
+    "dealerid": "238",
+    "name": "JOHNSON .C.GROUP OF COMPANY",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Mercedes",
+    "otherbrands": "TOYOTA ",
+    "contactperson": "JOHNSON CHIMA",
+    "contactphone": "080-3396-3249",
+    "othernos": "080-9594-7845"
+    },
+    {
+    "dealerid": "239",
+    "name": "REMEDES AUTO LINE NIG.LTD",
+    "location": "Abuja",
+    "market": "Gudu",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Japinese",
+    "contactperson": "REMI OMEKE",
+    "contactphone": "08060626024",
+    "othernos": "08036171108"
+    },
+    {
+    "dealerid": "240",
+    "name": "OGBU AND SONS NIG LIMITED ",
+    "location": "Abuja",
+    "market": "Gudu",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot",
+    "contactperson": "Ogbu & SONS",
+    "contactphone": "08039662393",
+    "othernos": "08033154127"
+    },
+    {
+    "dealerid": "241",
+    "name": "EDIMACO INTERNATIONAL AGENCY LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Peugeot",
+    "otherbrands": "PEUGOUT PARTS",
+    "contactperson": "EDWIN MENIRI",
+    "contactphone": "080-3570-0068",
+    "othernos": "08033146942"
+    },
+    {
+    "dealerid": "243",
+    "name": "O.OGBUS Enterprises",
+    "location": "Abuja",
+    "market": "Gudu",
+    "majorbrand": "Toyota",
+    "otherbrands": "All Japenese",
+    "contactperson": "0gbunna Okechukwu",
+    "contactphone": "08034535385",
+    "othernos": "08051181522"
+    },
+    {
+    "dealerid": "244",
+    "name": "SONI Benz LTD",
+    "location": "Abuja",
+    "market": "Gudu",
+    "majorbrand": "Toyota",
+    "otherbrands": "Toyota",
+    "contactperson": "Soni chukwu",
+    "contactphone": "08060679795",
+    "othernos": "08060679795"
+    },
+    {
+    "dealerid": "245",
+    "name": "uUgo paece ENterpriese",
+    "location": "Abuja",
+    "market": "Gudu",
+    "majorbrand": "Isuzu",
+    "otherbrands": "Hilux",
+    "contactperson": "ugochukwu",
+    "contactphone": "08037182991",
+    "othernos": "08099899521"
+    },
+    {
+    "dealerid": "246",
+    "name": "Obichris Comm. Ent LIMITED",
+    "location": "Abuja",
+    "market": "Gudu ",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot 306 407,607 Experts",
+    "contactperson": "Obinna C.Onyema",
+    "contactphone": "08055282864 ",
+    "othernos": "08032578525"
+    },
+    {
+    "dealerid": "247",
+    "name": "Obichris Commercial Ent Limited",
+    "location": "Abuja",
+    "market": "Gudu ",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot 306 407,607 Experts",
+    "contactperson": "Obinna C.Onyema",
+    "contactphone": "08055282864 ",
+    "othernos": "08032578525"
+    },
+    {
+    "dealerid": "249",
+    "name": "DON KENESON NIG.LTD.",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Peugeot",
+    "otherbrands": "PEUGEOT PARTS",
+    "contactperson": "SILVESTER EKENE",
+    "contactphone": "080-3459-9790",
+    "othernos": "080-5926-1872"
+    },
+    {
+    "dealerid": "250",
+    "name": "BLESSED EJIKY INTL AGENCY",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Honda",
+    "otherbrands": "TOYOTA HYUNDAI KIA",
+    "contactperson": "BLESSED EJIKE.A.",
+    "contactphone": "080-2356-2115",
+    "othernos": "080-3509-0559"
+    },
+    {
+    "dealerid": "251",
+    "name": "NNAMDI MOTORS NIG. LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Honda",
+    "otherbrands": "BMW LAND ROVER,OILS LIKE CASTROL OIL",
+    "contactperson": "NNAMDI ONUGHA",
+    "contactphone": "080-3345-1320. BLOCK 8 R91",
+    "othernos": "081-8656-6753"
+    },
+    {
+    "dealerid": "252",
+    "name": "VIC MIGHTY RESOURCES",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "B M W TOTOR",
+    "contactperson": "VICTOR UDEBUANI",
+    "contactphone": "08035390552",
+    "othernos": "08055320740"
+    },
+    {
+    "dealerid": "254",
+    "name": "MAN KENNZEE INTL LTD.",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Kia",
+    "otherbrands": "Chevrolet Hyundai Optra aveo Isuzu jeeps",
+    "contactperson": "KENNETH UGWUONAH",
+    "contactphone": "080-3597-6019",
+    "othernos": "070-4009-1911"
+    },
+    {
+    "dealerid": "256",
+    "name": "CELE-BOS GLOBAL AGENCY LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda, Kia, Ford, Nissan.",
+    "contactperson": "EZE BRENDAN.C",
+    "contactphone": "080-3786-4049",
+    "othernos": "080-2771-9026"
+    },
+    {
+    "dealerid": "258",
+    "name": "GOODLOCK C.PRODUCT LTD.",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda Ford Nissan Kia Cherekee lincoin",
+    "contactperson": "CHIGOZIE KELVIN UGWOKE",
+    "contactphone": "080-3506-7310",
+    "othernos": "080-2649-5039"
+    },
+    {
+    "dealerid": "259",
+    "name": "CHIDO A/C AIR CONDITION SPARE PARTS",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda, Peugeot, Hyundai, Nissan All Cars A/C",
+    "contactperson": "CHIEDOZIE ANILAPUTA",
+    "contactphone": "080-3623-7959",
+    "othernos": "080-5601-8371"
+    },
+    {
+    "dealerid": "260",
+    "name": "EMMACO INTERATED AGENCY",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Misubishi Mazda Honda Kia Isuzu",
+    "contactperson": "OKAFOR EMMANUEL",
+    "contactphone": "080-3374-5459",
+    "othernos": "080-9839-6109"
+    },
+    {
+    "dealerid": "261",
+    "name": "UNIQUE GLOBAL .A. LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Honda Ford Kia Hundai",
+    "contactperson": "ORJI EMMANUEL HENRY CHIDIEBERE",
+    "contactphone": "080-3555-8361 0R 080-54224428 ",
+    "othernos": "080-2404-6529 OR 070-4423-3692"
+    },
+    {
+    "dealerid": "264",
+    "name": "KEN GERMAN VENTURE NIG LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Golf",
+    "otherbrands": "VOLKSWAGEN, AUDI, SANTANA,PASSAT",
+    "contactperson": "KENNETH C. OKONKWO",
+    "contactphone": "080-3400-5134",
+    "othernos": "080-6868-2742"
+    },
+    {
+    "dealerid": "265",
+    "name": "OBAINO MOTORS NIG",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Golf",
+    "otherbrands": "VOLKSWAGEN, SKODA, AWUDI Q 7, PASSET CC AND PASSAT FSI",
+    "contactperson": "OBINNA OSSAI",
+    "contactphone": "080-6133-2948",
+    "othernos": "080-5583-7598"
+    },
+    {
+    "dealerid": "267",
+    "name": "ANYI VOLKS INTL AGENCY",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Golf",
+    "otherbrands": "VOLKSWAGEN AUDI,PASSAT,SKODA,JETTA",
+    "contactperson": "IFEANYICHUKWU C.I",
+    "contactphone": "080-3619-9810",
+    "othernos": "080-9505-8734"
+    },
+    {
+    "dealerid": "268",
+    "name": "EMMY BEST HOLDINGS",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "NISSAN MAZDA MITSUBISHI HONDA",
+    "contactperson": "EMEKA R. EZEA",
+    "contactphone": "080-5524-0219",
+    "othernos": "080-6270-7931"
+    },
+    {
+    "dealerid": "277",
+    "name": "OMOBIS AUTO ENTERPRISES",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Volkswagen",
+    "otherbrands": "Volks wagen",
+    "contactperson": "Obinna mmodozie",
+    "contactphone": "080-3645-9726",
+    "othernos": "080-5482-9978"
+    },
+    {
+    "dealerid": "278",
+    "name": "DEJ.C.KINGS NIG.LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Volkswagen",
+    "otherbrands": "Audi, skoda, jetta",
+    "contactperson": "JUDE EZED",
+    "contactphone": "080-3453-1434",
+    "othernos": "070-2611-1909"
+    },
+    {
+    "dealerid": "279",
+    "name": "DEJ.C.KINGS NIG.LTD",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Volkswagen",
+    "otherbrands": "Audi, Skoda, Jetta, Golf, Touareg, Q7 etc",
+    "contactperson": "JUDE EZEH",
+    "contactphone": "080-3453-1434",
+    "othernos": "070-2611-1909"
+    },
+    {
+    "dealerid": "280",
+    "name": "EMOBIZ AUTO ENTERPRISES",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Volkswagen",
+    "otherbrands": "Volks wagen. Touareg,Passat CC,Passat FSI,Golf 5,Jetta 5,Q7,Q5.,",
+    "contactperson": "Obinna mmodozie",
+    "contactphone": "080-3645-9726",
+    "othernos": "080-5482-9978"
+    },
+    {
+    "dealerid": "281",
+    "name": "KENDO C. ENTERPRISES NIG",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Fold Parts",
+    "contactperson": "Kenechukwu Mmadu",
+    "contactphone": "080-6250-7822",
+    "othernos": "081-8152-0070"
+    },
+    {
+    "dealerid": "282",
+    "name": "CHIFESCO GLOBAL ENT.",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Toyota Genue Parts",
+    "contactperson": "CHINENYE FESTUS",
+    "contactphone": "080-3552-3249",
+    "othernos": "080-9921-5685"
+    },
+    {
+    "dealerid": "286",
+    "name": "MIC-OBISON",
+    "location": "Abuja",
+    "market": "GUDU ",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Peugeot parts",
+    "contactperson": "OBINNA MICHEAL",
+    "contactphone": "080-6367-4041",
+    "othernos": "081-8939-9983"
+    },
+    {
+    "dealerid": "445",
+    "name": "OBI-WEALTH ENT.NIG.LTD.",
+    "location": "Abuja",
+    "market": "Area Three",
+    "majorbrand": "Mercedes",
+    "otherbrands": "General Contractors`",
+    "contactperson": "Hebert Obijiaku",
+    "contactphone": "080-3306-3083",
+    "othernos": "070-8074-3795"
+    },
+    {
+    "dealerid": "447",
+    "name": "CHIMEX ENTERPRISES NIG",
+    "location": "Abuja",
+    "market": "Area Three",
+    "majorbrand": "Toyota",
+    "otherbrands": "Hyundai Honda nissan ",
+    "contactperson": "Chimezie .E. Obijiaku",
+    "contactphone": "070-6475-3426",
+    "othernos": "081-7655-7901"
+    },
+    {
+    "dealerid": "448",
+    "name": "CHIMEX ENTERPRISES NIG",
+    "location": "Abuja",
+    "market": "Area Three",
+    "majorbrand": "Toyota",
+    "otherbrands": "Hyundai Honda nissan ",
+    "contactperson": "Chimezie .E. Obijiaku",
+    "contactphone": "070-6475-3426",
+    "othernos": "081-7655-7901"
+    },
+    {
+    "dealerid": "449",
+    "name": "AUSTIN-NADON AUTO LINKS LTD",
+    "location": "Abuja",
+    "market": "Area Three",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Honda",
+    "contactperson": "Austin Chukwujekwe",
+    "contactphone": "080-3294-6109",
+    "othernos": "080-3736-1273"
+    },
+    {
+    "dealerid": "451",
+    "name": "UP-JESUSINVESTMENT CO.",
+    "location": "Abuja",
+    "market": "Area Three",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Mitsubishi, Mazda, Honda",
+    "contactperson": "Kenneth Ufili",
+    "contactphone": "080-3649-3653",
+    "othernos": ""
+    },
+    {
+    "dealerid": "453",
+    "name": "ROBERRS CHARLES NIG.LTD.",
+    "location": "Abuja",
+    "market": "Area Three",
+    "majorbrand": "Honda",
+    "otherbrands": "Nissan Mitsubishi",
+    "contactperson": "Robert Charles Uzochukwu",
+    "contactphone": "080-6499-3782",
+    "othernos": "081-04365735"
+    },
+    {
+    "dealerid": "455",
+    "name": "R.U.COOLYSON NIG. ENT",
+    "location": "Abuja",
+    "market": "Area Three ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Honda, peugoet such as 406,307,408 etc",
+    "contactperson": "Rechard .S. Udechukwu",
+    "contactphone": "080-5550-1949",
+    "othernos": "080-6562-2100"
+    },
+    {
+    "dealerid": "458",
+    "name": "ONAJOE Marchandise",
+    "location": "Abuja",
+    "market": "Zuba ",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan Mazda Honda Mitsubishi etc",
+    "contactperson": "Onah Josephat",
+    "contactphone": "080-3289-2468",
+    "othernos": ""
+    },
+    {
+    "dealerid": "459",
+    "name": "BLESSED EMMANUEL INTERNATIONAL AGENCIES",
+    "location": "Abuja",
+    "market": "Zuba",
+    "majorbrand": "Toyota",
+    "otherbrands": "Quaris, and Industrial Mechine",
+    "contactperson": "Emmanuel O. Benjamin",
+    "contactphone": "080-3470-4001",
+    "othernos": "070-5252-7486"
+    },
+    {
+    "dealerid": "461",
+    "name": "Ezekiel Okechukwu Int,l Agency",
+    "location": "Abuja",
+    "market": "Zuba",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": " Changan, Baw, jack,",
+    "contactperson": "Ezekeil C. Onunze",
+    "contactphone": "080-6565-5125",
+    "othernos": "080-2219-8505 / 009240222267560"
+    },
+    {
+    "dealerid": "463",
+    "name": "CJ Sunny Joe Nig. Ent",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Man tiga, Daf, Atros, sino truck,Iveco,Tubors,Man vows,Volvo,Renut,Atago,Axus",
+    "contactperson": "Eze Joseph [Captain]",
+    "contactphone": "080-6544-5096",
+    "othernos": "080-5057-9500"
+    },
+    {
+    "dealerid": "464",
+    "name": "IFECO HONDA",
+    "location": "Abuja",
+    "market": "Zuba",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Honda,",
+    "contactperson": "Ifeabunike Asodike",
+    "contactphone": "081-8832-6606",
+    "othernos": "080-6077-3439"
+    },
+    {
+    "dealerid": "465",
+    "name": "Xplod Obaino Link Enterprises",
+    "location": "Abuja",
+    "market": "zuba",
+    "majorbrand": "Toyota",
+    "otherbrands": "Car decoration, Car tapes, and Car dvd, Car Securitys",
+    "contactperson": "ONOJA HARRISON",
+    "contactphone": "080-6555-0806",
+    "othernos": ""
+    },
+    {
+    "dealerid": "466",
+    "name": "Okenwa Global Resources Ventures",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Isuzu, Honda, Jeep, Kia",
+    "contactperson": "Chuks Okenwa",
+    "contactphone": "080-3602-0348",
+    "othernos": "070-8466-7733"
+    },
+    {
+    "dealerid": "467",
+    "name": "Okenwa Global Resources Ventures",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Isuzu, Honda, Jeep, Kia",
+    "contactperson": "Chuks Okenwa",
+    "contactphone": "080-3602-0348",
+    "othernos": "070-8466-7733"
+    },
+    {
+    "dealerid": "468",
+    "name": "Okenwa Global Resources Ventures",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Isuzu, Honda, Jeep, Kia, all kinds of truck such as Mark, Iveco",
+    "contactperson": "Chuks Okenwa",
+    "contactphone": "080-3602-0348",
+    "othernos": "070-8466-7733 or 081-7871-8069"
+    },
+    {
+    "dealerid": "469",
+    "name": "De Paul- Chez Investment",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "V.Boot, 190, C- Class, ml",
+    "contactperson": "PAUL EZEH",
+    "contactphone": "070-3556-0958",
+    "othernos": "080-5391-0849"
+    },
+    {
+    "dealerid": "470",
+    "name": "Okeson Ventures",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Dealer in all kinds of peugeot 406, 307, 407, 206.",
+    "contactperson": "Okechukwu Okafor",
+    "contactphone": "080-5444-9367",
+    "othernos": "080-6740-5100"
+    },
+    {
+    "dealerid": "471",
+    "name": "C.E.O Prince Iykdon",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Auto Link, General Merchant",
+    "contactperson": "Ikechukwu Nwaeze",
+    "contactphone": "080-3512-0370",
+    "othernos": "080-9512-5163"
+    },
+    {
+    "dealerid": "472",
+    "name": "What God Is Written Enterprises [Nig]",
+    "location": "Abuja",
+    "market": "Zuba",
+    "majorbrand": "Peugeot",
+    "otherbrands": "peugeot 406, 306, 504, 55, j5, 607, 307, 406.",
+    "contactperson": "Peter Anidi",
+    "contactphone": "080-5796-1389",
+    "othernos": "070-3292-0500"
+    },
+    {
+    "dealerid": "473",
+    "name": "Chinben Investment Nigeria",
+    "location": "Abuja",
+    "market": "Zuba",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Mazda, Honda, Mitsubishi, Hyundai, kia, Isuzu",
+    "contactperson": "Chibuike Ezeh",
+    "contactphone": "070-6624-1053",
+    "othernos": "081-8911-4598"
+    },
+    {
+    "dealerid": "474",
+    "name": "Blessed Peace Ventures Nigeria",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan, Mitsubishi, Mazda,",
+    "contactperson": "Peace Nkazi",
+    "contactphone": "080-3587-8043",
+    "othernos": "070-4040-8504"
+    },
+    {
+    "dealerid": "475",
+    "name": "Blessed Samlugard Global Venture Nig. LTD",
+    "location": "Abuja",
+    "market": "zuba",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Mack, Daf, Actros, Fiat- Iveco, Mandiesel, Volvo",
+    "contactperson": "Sir Samuel Lugard",
+    "contactphone": "080-3587-7892",
+    "othernos": "080-5508-3576, or 081-8063-8108"
+    },
+    {
+    "dealerid": "476",
+    "name": "Mma-Agha Global Links Limited",
+    "location": "Abuja",
+    "market": "zuba",
+    "majorbrand": "Toyota",
+    "otherbrands": "Dealer on china sino truck and Catapilar",
+    "contactperson": "Chima Oguejiofor",
+    "contactphone": "081-5506-3409, ",
+    "othernos": "070-3709-8329"
+    },
+    {
+    "dealerid": "477",
+    "name": "LUMARKS Business Enterprises",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "OPEL",
+    "contactperson": "LUKE C. ODIHE",
+    "contactphone": "080-3590-2026",
+    "othernos": ""
+    },
+    {
+    "dealerid": "478",
+    "name": "LUMARKS Business Enterprises",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "OPEL",
+    "contactperson": "LUKE C. ODIHE",
+    "contactphone": "080-3590-2026",
+    "othernos": ""
+    },
+    {
+    "dealerid": "479",
+    "name": "Mma-Agha Global Links Limited",
+    "location": "Abuja",
+    "market": "zuba",
+    "majorbrand": "Toyota",
+    "otherbrands": "Dealer on china sino truck and Catapilar",
+    "contactperson": "Chima Oguejiofor",
+    "contactphone": "081-5506-3409, ",
+    "othernos": "070-3709-8329"
+    },
+    {
+    "dealerid": "480",
+    "name": "A.N OKORO And SONS ENT",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Car Stereo, C.D, Players, Wolfers, Loaders, and Motor Spare parts.",
+    "contactperson": "SAMSON OKORO",
+    "contactphone": "080-6979-4935",
+    "othernos": "080-5404-2363"
+    },
+    {
+    "dealerid": "482",
+    "name": "GREAT GABBYS [W.A] LIMITED",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Batteries, Tyres, peugeo 406, 307, 407, 504, 206.",
+    "contactperson": "G. N. OGWUECHE",
+    "contactphone": "080-3599-3421",
+    "othernos": "080-5081-3479"
+    },
+    {
+    "dealerid": "483",
+    "name": "PAT DEUS INVESTMENT LIMITED",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Mercedes spare parts such as ml 203, C Class G.gard",
+    "contactperson": "PATRICK ONUGWO",
+    "contactphone": "080-3348-1768",
+    "othernos": "080-9393-2716"
+    },
+    {
+    "dealerid": "488",
+    "name": "BEST - GEM FIRM",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "A/C parts, Gas and installation",
+    "contactperson": "NORBERT P. ILO",
+    "contactphone": "080-3601-4468",
+    "othernos": ""
+    },
+    {
+    "dealerid": "489",
+    "name": "EMPEROR",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "J5 Spare Part, Boscar, fiat pecanto",
+    "contactperson": "Ephraim Okafor",
+    "contactphone": "080-5524-2802",
+    "othernos": "081-0209-0455"
+    },
+    {
+    "dealerid": "490",
+    "name": "Sumech Enterprises Nigeria",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Mini Buses, Volkswagen, Battreries, Audi, Merceedes Cars",
+    "contactperson": "JOSHUA O.N",
+    "contactphone": "080-3551-4127",
+    "othernos": "081-5246-0160"
+    },
+    {
+    "dealerid": "491",
+    "name": "BLESSED I. K",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "General Auto, Electrical Spare Parts",
+    "contactperson": "MATHIAS OZOIGBO iKECHUKWU",
+    "contactphone": "080-6979-3080",
+    "othernos": "080-7374-5725"
+    },
+    {
+    "dealerid": "492",
+    "name": "EZE OFOMA AND SONS [NIG] ENT.",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Mercedes 911, 1513, 1621, 1924, 608",
+    "contactperson": "EZE OFOMA",
+    "contactphone": "080-5274-5926",
+    "othernos": "080-5792-2578"
+    },
+    {
+    "dealerid": "493",
+    "name": "EZE OFOMA AND SONS [NIG] ENT.",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Mercedes 911, 1513, 1621, 1924, 608",
+    "contactperson": "EZE OFOMA",
+    "contactphone": "080-5274-5926",
+    "othernos": "080-5792-2578"
+    },
+    {
+    "dealerid": "494",
+    "name": "BLESSED ONWU",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Peugeot",
+    "otherbrands": "All kinds of Motor Spare Parts, and Accessories",
+    "contactperson": "JOHNSON ONWU",
+    "contactphone": "080-6349-6137",
+    "othernos": "080-7623-9739"
+    },
+    {
+    "dealerid": "495",
+    "name": "BLESSED HENRY INT AGENCY",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Heavy DutySpare Parts, Caterpillar Equipment, general Contractor",
+    "contactperson": "HENRY NWACHUKWU. M",
+    "contactphone": "080-6569-5671",
+    "othernos": "080-7346-3508"
+    },
+    {
+    "dealerid": "496",
+    "name": "C-ROCKY INTEGRATED CONCPT LTD",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Japanese motor spare parts, Mitsubishi, Nissan, Mazda, Datsun",
+    "contactperson": "CHIDI OFUOKWU",
+    "contactphone": "080-3506-4696",
+    "othernos": "080-5891-1360"
+    },
+    {
+    "dealerid": "497",
+    "name": "F.D FIDENSON INVESTMENT CO. NIG",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Japanese Body Parts and Headlamps, Traffigator Lamps, Bomber",
+    "contactperson": "FIDELIS UGWU",
+    "contactphone": "070-6684-7517",
+    "othernos": ""
+    },
+    {
+    "dealerid": "500",
+    "name": "EMMA VENTURE NIG.",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mazda Misubishi Nissan Honda",
+    "contactperson": "Emmanuel Pama",
+    "contactphone": "081-3564-9308",
+    "othernos": ""
+    },
+    {
+    "dealerid": "502",
+    "name": "KADA BEST VENTURES",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mercedes",
+    "otherbrands": "Caterpillar eqitm,Tractors,landtrain,styre diesel",
+    "contactperson": "Anayo Ukeje",
+    "contactphone": "070-3989-2727",
+    "othernos": "080-9490-6977"
+    },
+    {
+    "dealerid": "503",
+    "name": "SYLVACO OMEOGOR INVESTMENT LTD",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda,mazda,nissan,mitsubushi kia,hyundai",
+    "contactperson": "Sylvanus Ozoji",
+    "contactphone": "080-3596-5559",
+    "othernos": "081-2371-5855"
+    },
+    {
+    "dealerid": "508",
+    "name": "IZU HOLDINGS NIG",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Honda",
+    "otherbrands": "Prelude, Accord, Civic, Legend, CRV, Pilot, Element ",
+    "contactperson": "IZUCHUKWU E. IBEKWE",
+    "contactphone": "070-4194-4475",
+    "othernos": "081-0370-3077"
+    },
+    {
+    "dealerid": "509",
+    "name": "God Bless Samson World Ventures",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Man Diesel",
+    "otherbrands": "Actros, Axor, Daf, 1924",
+    "contactperson": "CHIZOR GILBERT UZOMA",
+    "contactphone": "080-6575-8175",
+    "othernos": ""
+    },
+    {
+    "dealerid": "510",
+    "name": "GIN INTL AGENCY [NIG.] LTD",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Automobile Spare Parts, and Accesories, Distributor",
+    "contactperson": "GREGORY I. OBIEGBU N. ",
+    "contactphone": "070-3949-7290",
+    "othernos": "080-5595-7330"
+    },
+    {
+    "dealerid": "511",
+    "name": "O J FORTUNES AND INDUSTRIAL EQUIPMENT",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Man Diesel",
+    "otherbrands": "Repairing of Tubor Charger, Perkins, Deutz, Cummins, Filters, and Maintenance of Generators",
+    "contactperson": "UZOMEACHILA JOHNSON",
+    "contactphone": "080-5207-3994",
+    "othernos": "070-6573-5656"
+    },
+    {
+    "dealerid": "512",
+    "name": "IKYESON ENT. NIGERIA",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda, Nissan,Mitsbushi, Dealer and all kinds of Motor Engine",
+    "contactperson": "AGU CLINTON I. IKECHUKWU",
+    "contactphone": "080-6447-2534",
+    "othernos": "080-7725-5345 OR 081-8779-4615"
+    },
+    {
+    "dealerid": "513",
+    "name": "CURTIS - MEFUNA Investment Company",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": "Japanese Fairly Used Engine and Spare Parts",
+    "contactperson": "ANTHONY CHUKS UMEH",
+    "contactphone": "080-5448-2779",
+    "othernos": "081-8507-2793"
+    },
+    {
+    "dealerid": "514",
+    "name": "BLESSED UCHE BEN [NIG.] INVESTMENT",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "Honda, Datsun, Mazda,Nissan, Mercedese Benz",
+    "contactperson": "UCHENNA NLEMUWA",
+    "contactphone": "081-3446-8844",
+    "othernos": "080-5779-1614"
+    },
+    {
+    "dealerid": "515",
+    "name": "BLESSED KING ARINZE",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Toyota",
+    "otherbrands": "All kinds of Japanese Car, Honda, Nissan",
+    "contactperson": "ARINZECHUKWU BENJAMIN",
+    "contactphone": "080-6973-4630",
+    "othernos": ""
+    },
+    {
+    "dealerid": "516",
+    "name": "CHI HONDA INVESTMENT",
+    "location": "Abuja",
+    "market": "ZUBA",
+    "majorbrand": "Honda",
+    "otherbrands": "Accord, Civic, Rove, CRV",
+    "contactperson": "CHIMA EZEIFESIE",
+    "contactphone": "070-3499-8559",
+    "othernos": "070-2676-9512"
+    },
+    {
+    "dealerid": "518",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "519",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "520",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "521",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "522",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "523",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "524",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "525",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "526",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "527",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "528",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "529",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "530",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "531",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "532",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "533",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "534",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "535",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "536",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "537",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "538",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "539",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "540",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "541",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "542",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "543",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "544",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "545",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "546",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "547",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "548",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "549",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "550",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "551",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "552",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "553",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "554",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "555",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "556",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "557",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "558",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "559",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "560",
+    "name": "Emma Syndicate",
+    "location": "Abuja",
+    "market": "Jabi Park",
+    "majorbrand": "Opel",
+    "otherbrands": "Nissan,Mazda,Mitsubishi",
+    "contactperson": "Emmanuel Igboanua",
+    "contactphone": "07065678522",
+    "othernos": "08050767652"
+    },
+    {
+    "dealerid": "561",
+    "name": "Auto Investment Nig",
+    "location": "Abuja",
+    "market": "Jabi Park",
+    "majorbrand": "Toyota",
+    "otherbrands": "Nissan,Renault,Peugeot",
+    "contactperson": "Anozie Finbarrs",
+    "contactphone": "08035049536",
+    "othernos": "08073939144"
+    },
+    {
+    "dealerid": "562",
+    "name": "Asiway Nig Ltd",
+    "location": "Abuja",
+    "market": "Jabi Park",
+    "majorbrand": "Nissan",
+    "otherbrands": "Toyota,Mazda,Nissan",
+    "contactperson": "Asiwaju Oluwasegun",
+    "contactphone": "08035893717",
+    "othernos": "08052904935,08121402611"
+    },
+    {
+    "dealerid": "563",
+    "name": "Eloson Automobile Concerns",
+    "location": "Abuja",
+    "market": "Jabi Park",
+    "majorbrand": "Nissan",
+    "otherbrands": "Mercedes,Toyota",
+    "contactperson": "Livinus Muokwelu",
+    "contactphone": "08060100613",
+    "othernos": "08055240804"
+    },
+    {
+    "dealerid": "564",
+    "name": "Gab Enterprises Nig.",
+    "location": "Abuja",
+    "market": "Jabi Park",
+    "majorbrand": "Nissan",
+    "otherbrands": "Toyota,Honda",
+    "contactperson": "Gab Enterprise",
+    "contactphone": "07080193925",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "565",
+    "name": "Great Chekson Int. Ltd",
+    "location": "Abuja",
+    "market": "Utakao,Ekeson Plaz",
+    "majorbrand": "Toyota",
+    "otherbrands": "Hyundai,Perkins",
+    "contactperson": "Uche Iloka",
+    "contactphone": "08036053904",
+    "othernos": "none"
+    },
+    {
+    "dealerid": "566",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "567",
+    "name": "",
+    "location": "",
+    "market": "",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "568",
+    "name": "Emmy King Invest.Ltd",
+    "location": "Abuja",
+    "market": "JabibPsrk",
+    "majorbrand": "Toyota",
+    "otherbrands": "Mercedes,Nissan,Honda",
+    "contactperson": "Emeka Amaechi Kingsley",
+    "contactphone": "08063465189",
+    "othernos": "08022800731,08188314980"
+    },
+    {
+    "dealerid": "569",
+    "name": "Genesis Investment",
+    "location": "Abuja",
+    "market": "Jabi Park",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": "Dyna",
+    "contactperson": "Anslem Azubuine",
+    "contactphone": "08105488343",
+    "othernos": "08189076426"
+    },
+    {
+    "dealerid": "570",
+    "name": "Chimath Venture Nig. Ltd.",
+    "location": "Abuja",
+    "market": "Utako, Ekeson Plaza",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": "Toyota, Honda,Peugeot",
+    "contactperson": "Chika Mathias",
+    "contactphone": "08037034336",
+    "othernos": "08170608363"
+    },
+    {
+    "dealerid": "571",
+    "name": "Chinedu John",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Nissan",
+    "otherbrands": "Toyota,Nissan",
+    "contactperson": "Chinedu John",
+    "contactphone": "08096954185",
+    "othernos": "08096954185"
+    },
+    {
+    "dealerid": "572",
+    "name": "PLC Honda",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Honda",
+    "otherbrands": "Toyota, Nissan",
+    "contactperson": "Godspower",
+    "contactphone": "08065909723",
+    "othernos": ""
+    },
+    {
+    "dealerid": "573",
+    "name": "Bemek Investment Nig Ltd",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota ",
+    "otherbrands": "Nissan, Honda, Mazda, Ford, Kia, Chevrolet, Mitsubishi, Lexu",
+    "contactperson": "Brethrend E. Ejike ",
+    "contactphone": "08039573284",
+    "othernos": "08097025995"
+    },
+    {
+    "dealerid": "574",
+    "name": "Bemek Investment Nig Ltd",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota ",
+    "otherbrands": "Nissan, Honda, Mazda, Ford, Kia, Chevrolet, Mitsubishi, Lexu",
+    "contactperson": "Bethrend .E. Ejike ",
+    "contactphone": "08039573284",
+    "othernos": "08097025995"
+    },
+    {
+    "dealerid": "575",
+    "name": "Bemek Investment Nig Ltd",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota ",
+    "otherbrands": "Nissan, Honda, Mazda, Ford, Kia, Chevrolet, Mitsubishi, Lexu",
+    "contactperson": "Bethrend .E. Ejike ",
+    "contactphone": "08039573284",
+    "othernos": "08097025995"
+    },
+    {
+    "dealerid": "576",
+    "name": "Divine Honda Resources ",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota ",
+    "otherbrands": "Honda",
+    "contactperson": "Divine Samuel ",
+    "contactphone": "08097481190",
+    "othernos": "08065704684"
+    },
+    {
+    "dealerid": "577",
+    "name": "OJC Investment ",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Peugeot ",
+    "otherbrands": "",
+    "contactperson": "Onyechefuna J. Chijioke ",
+    "contactphone": "08068294385",
+    "othernos": "08057126439"
+    },
+    {
+    "dealerid": "578",
+    "name": "Donking B12 Nig.",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Honda",
+    "otherbrands": "Toyota",
+    "contactperson": "Donking",
+    "contactphone": "08032101837",
+    "othernos": ""
+    },
+    {
+    "dealerid": "579",
+    "name": "Prince Anyi Parts",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Mazda",
+    "otherbrands": "Toyota,Mitsubishi,Nissan,Toyota",
+    "contactperson": "Prince Anyi",
+    "contactphone": "08035972122",
+    "othernos": "08189874491"
+    },
+    {
+    "dealerid": "580",
+    "name": "Confidence Levi",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Toyota",
+    "contactperson": "Confidence Levi",
+    "contactphone": "08171169795",
+    "othernos": "08171169795"
+    },
+    {
+    "dealerid": "581",
+    "name": "Confidence Levi",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Toyota",
+    "contactperson": "Confidence Levi",
+    "contactphone": "08171169795",
+    "othernos": "08171169795"
+    },
+    {
+    "dealerid": "582",
+    "name": "Uchetex",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Toyota",
+    "otherbrands": "Volkswagen",
+    "contactperson": "Uche Okoro",
+    "contactphone": "07037688135",
+    "othernos": "na"
+    },
+    {
+    "dealerid": "583",
+    "name": "Chinedu John",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Nissan ",
+    "otherbrands": "Toyota ",
+    "contactperson": "Chinedu ",
+    "contactphone": "08096954185",
+    "othernos": ""
+    },
+    {
+    "dealerid": "584",
+    "name": "Ozoemana Valentine",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Gear Box Repairs",
+    "otherbrands": "",
+    "contactperson": "Valentine ",
+    "contactphone": "08161151032",
+    "othernos": ""
+    },
+    {
+    "dealerid": "585",
+    "name": "Ozoemana Valentine",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Gear Box Repairs",
+    "otherbrands": "Manual ",
+    "contactperson": "Valentine ",
+    "contactphone": "08161151032",
+    "othernos": ""
+    },
+    {
+    "dealerid": "586",
+    "name": "Bemek Investment Nig Ltd",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Nissan ",
+    "otherbrands": "Honda, Ford, Kia, Chevrolet, Lexus, Toyota ",
+    "contactperson": "Bethrend E. Ejike ",
+    "contactphone": "08039573284",
+    "othernos": "08097025995"
+    },
+    {
+    "dealerid": "587",
+    "name": "Obimac Resources / America Automobile ",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Chevrolet ",
+    "otherbrands": "Ford, Dodge ",
+    "contactperson": "Obiefuna c. Martins ",
+    "contactphone": "08037334100",
+    "othernos": "08093746669"
+    },
+    {
+    "dealerid": "588",
+    "name": "PLC Honda",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "Honda",
+    "otherbrands": "Toyota, Nissan ",
+    "contactperson": "Godspower",
+    "contactphone": "08065909723",
+    "othernos": ""
+    },
+    {
+    "dealerid": "589",
+    "name": "Cyril Holding",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Peugeot",
+    "otherbrands": "Mitsubishi",
+    "contactperson": "Cyril Holding",
+    "contactphone": "08036053644",
+    "othernos": "na"
+    },
+    {
+    "dealerid": "590",
+    "name": "Jecon Invets.Co",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Mitsubishi",
+    "otherbrands": "Mitsubishi,Toyota",
+    "contactperson": "Jecon Invest.Co",
+    "contactphone": "08031353104",
+    "othernos": "na"
+    },
+    {
+    "dealerid": "591",
+    "name": "Ohalism Inter",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Bmw",
+    "otherbrands": "Bmw,Volkswagen",
+    "contactperson": "Ohalism Inter",
+    "contactphone": "08032912630",
+    "othernos": "na"
+    },
+    {
+    "dealerid": "592",
+    "name": "CJ Joseph",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Audi",
+    "otherbrands": "Audi,Volkswagen",
+    "contactperson": "CJ Joseph",
+    "contactphone": "08032912630",
+    "othernos": "na"
+    },
+    {
+    "dealerid": "593",
+    "name": "Jerrytom",
+    "location": "Abuja",
+    "market": "Dutse alhaji",
+    "majorbrand": "TOYOTA",
+    "otherbrands": "honda,mazda",
+    "contactperson": "jeremaih thomas",
+    "contactphone": "08039664643",
+    "othernos": ""
+    },
+    {
+    "dealerid": "594",
+    "name": "",
+    "location": "Abuja",
+    "market": "Kugbo",
+    "majorbrand": "",
+    "otherbrands": "",
+    "contactperson": "",
+    "contactphone": "",
+    "othernos": ""
+    },
+    {
+    "dealerid": "595",
+    "name": "Nnamdi Motors",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Bmw",
+    "otherbrands": "Bmw",
+    "contactperson": "Nnamdi Motors",
+    "contactphone": "08033451320",
+    "othernos": "08186566753"
+    },
+    {
+    "dealerid": "596",
+    "name": "Nnamdi Motors",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Bmw",
+    "otherbrands": "Bmw",
+    "contactperson": "Nnamdi Motors",
+    "contactphone": "08033451320",
+    "othernos": "08186566753"
+    },
+    {
+    "dealerid": "597",
+    "name": "Ohalism",
+    "location": "Abuja",
+    "market": "Utako",
+    "majorbrand": "Bmw",
+    "otherbrands": "Bmw",
+    "contactperson": "Ohalism",
+    "contactphone": "08032912630",
+    "othernos": "08032912630"
+    },
+    {
+    "dealerid": "598",
+    "name": "EKERE",
+    "location": "Abuja",
+    "market": "AYA",
+    "majorbrand": "ACCESSORIES FOR ALL BRANDS",
+    "otherbrands": "",
+    "contactperson": "MIKE",
+    "contactphone": "07061349006",
+    "othernos": ""
+    },
+    {
+    "dealerid": "599",
+    "name": "EKESON NIG LIMITED",
+    "location": "Abuja",
+    "market": "AYA",
+    "majorbrand": "ACCESSORIES FOR ALL BRANDS",
+    "otherbrands": "",
+    "contactperson": "MIKE",
+    "contactphone": "07061349006",
+    "othernos": ""
+    },
+    {
+    "dealerid": "601",
+    "name": "IFECO NIG LIMITED",
+    "location": "Abuja",
+    "market": "IFECO",
+    "majorbrand": "JAPANESE",
+    "otherbrands": "FORD",
+    "contactperson": "IFEANYI",
+    "contactphone": "08177643290",
+    "othernos": ""
+    },
+    {
+    "dealerid": "601",
+    "name": "LIOMAS GROUP OF COMPANY",
+    "location": "Abuja",
+    "market": "WUSE market",
+    "majorbrand": "ALL BRAND ACCESSORIES",
+    "otherbrands": "",
+    "contactperson": "LINUS",
+    "contactphone": "07030654442",
+    "othernos": ""
+    }
+    ];
+
+$('#txt-search').keyup(function(){
+    
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter-records').html('');
+				return;
+			}
+			
+            var regex = new RegExp(searchField, "i");
+            var output = '<div class="row">';
+            var count = 1;
+            var line = '<hr>';
+			  $.each(data, function(key, val){
+				if ((val.otherbrands.search(regex) != -1) || (val.otherbrands.search(regex) != -1)) {
+				  output += '<div class="col-md-6 jumbotron ">';
+				  
+				  output += '<div class="col-md-7">';
+				  output += '<h4>' + val.otherbrands + '</h4>';
+                  //output += '<hr>';
+                  //output += '<hr>'
+				  output += '<h4>' + val.name + '</h4>';
+                 // output += '<hr>';
+                 // line;
+                   output += '<h4>' + val.market + '</h4>';
+                   //output += '<hr>';
+                   //line;
+                   output += '<h4><a>' + val.contactphone + '</a></h4>';
+                   //output += '<hr>';
+                   //line;
+				  output += '</div>';
+				  output += '</div>';
+				  if(count == 5){
+					output += '</div><div class="row">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</div>';
+			  $('#filter-records').html(output);
+        });
+  });
+</script>

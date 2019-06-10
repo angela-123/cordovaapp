@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    h4{
+      margin-bottom:2px;
+      margin-top:2px;
+      color:darkblue;
+      border:1pt solid white;
+    }
+
+    hr{
+      border:1px black solid;
+
+    }
+    h3{
+
+      color:blue;
+      text-align: center;
+    }
+
+    #txt-search{
+      font-size:1.2em;
+      color:black;
+    }
+
+    jumbotron{
+      background-color:white;
+    }
+
+    #filter-records{
+      background:rgb(32, 22, 4);
+    }
+  </style>
+  <link href="css/onsenui.css" rel="stylesheet">
+        <link href="css/onsen-css-components.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        ‪<!-- Optional Bootstrap theme -->
+        ‪<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="css/ionicons.min.css">
+        <script src="js/onsenui.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-1.11.3.js"></script>
+      ‪<script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="container-fluid">
+    <h3>Live Search Mechanics By Specialty</h3>
+    <div class="row">
+	<div class=" ">
+
+          <input type="input" class="form-control" id="txt-search" placeholder="Type your search character">
+
+	</div>
+
+</div>
+<div id="filter-records" class="col-md-8"></div>
+  </div>
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    //alert(new Date());
+ var data =  [{"specialty":"toyota","mechname":"Wasiu Nafiu","location":"kugbo","phone":"08066573453"},{"specialty":"Toyota","mechname":"Izuchukwu I","location":"Utako","phone":"08032757937,08188018424"},{"specialty":"Ford","mechname":"Friday Obey","location":"Utako","phone":"08035693863,08130171771"},{"specialty":"Car Ac","mechname":"Salifu","location":"Utako","phone":"07055350063,08103734485"},{"specialty":"Honda","mechname":"Osariemen Sunday","location":"Utako","phone":"07038443072"},{"specialty":"Volkswagen","mechname":"Wale Ajiboye","location":"Utako","phone":"08036669545,08024448884"},{"specialty":"Volkswagen","mechname":"Abbas Akran","location":"Wuse Zones","phone":"09099421564,09051582088"},{"specialty":"Panel Beater","mechname":"Rotimi Ayanlola","location":"Wuse Zones","phone":"0855326511"},{"specialty":"Volkswagen","mechname":"Mala Audu","location":"Wuse Zones","phone":"09098589243"},{"specialty":"Auto Electrician","mechname":"Rasheed Salami","location":"Wuse Zones","phone":"08039711181,08051010970"},{"specialty":"Toyota","mechname":"Odey Sunday","location":"Banex","phone":"08039733993"},{"specialty":"Peugeot","mechname":"Sunday One Touch","location":"Banex","phone":"09021267164"},{"specialty":"Mercedes","mechname":"John Osheku","location":"Banex","phone":"08074440664"},{"specialty":"Toyota","mechname":"Kabiru Usman","location":"Banex","phone":"08075384007"},{"specialty":"Toyota","mechname":"Kabiru Usman","location":"Banex","phone":"08075384007"},{"specialty":"Honda","mechname":"Nathaniel Moses","location":"Nyanya","phone":"08160992214"},{"specialty":"Volkswagen","mechname":"Taiye Useni","location":"Nyanya","phone":"08057205159"},{"specialty":"Mercedes","mechname":"Eduwo Ojo","location":"Nyanya","phone":"07062288342"},{"specialty":"Volswagen","mechname":"Raphael Oyenaki","location":"Nyanya","phone":"08054067867"},{"specialty":"Toyota","mechname":"Kwaghsar Ikymie","location":"Nyanya","phone":"08033169802,0809698296"},{"specialty":"Auto Electrician","mechname":"Friday Ayo","location":"Nyanya","phone":"08066947754"},{"specialty":"Mazda","mechname":"Emmanuel Obong","location":"Nyanya","phone":"08065074493,08119511376"},{"specialty":"Panel beater","mechname":"Abdulkareem Ibrahim","location":"Nyanya","phone":"08035138677"},{"specialty":"Panel beater","mechname":"Emmanuel Duru","location":"Nyanya","phone":"08034462172"},{"specialty":"Volkswagen","mechname":"Emmanuel Godwin","location":"Nyanya","phone":"08174849598"},{"specialty":"Toyota","mechname":"Hamzat Yusuf","location":"Nyanya","phone":"08082108027"},{"specialty":"Honda","mechname":"Jeremiah Olawunmi","location":"Nyanya","phone":"08071699028"},{"specialty":"Peugeot","mechname":"Emeka Ohaneze","location":"Nyanya","phone":"08072482231"},{"specialty":"Volkswagen","mechname":"David Meka8874","location":"Kpeyegyi","phone":"0807636"},{"specialty":"Nissan","mechname":"Joseph Samson","location":"Kpeyegyi","phone":"09093103288,09059602336"},{"specialty":"Toyota","mechname":"Sonny Success","location":"Kpeyegyi","phone":"08147012706,09093103330"},{"specialty":"Toyota","mechname":"Sonny Success","location":"Kpeyegyi","phone":"08147012706,09093103330"},{"specialty":"Volkwagen","mechname":"Bayo Ade","location":"Kpeyegyi","phone":"07030996080"},{"specialty":"Nissan","mechname":"Abubakar Babatunde","location":"Kpeyegyi","phone":"08066938937"},{"specialty":"Honda","mechname":"Samuel Ojo","location":"Kpeyegyi","phone":"09094716785"},{"specialty":"Mitsubishi","mechname":"Obi Francis","location":"Kpeyegyi","phone":"07091014340"},{"specialty":"Nissan","mechname":"Monday Ujah","location":"Kpeyegyi","phone":"07036599218"},{"specialty":"Honda","mechname":"Mike Motoni","location":"Kpeyegyi","phone":"08056206495"},{"specialty":"Nissan","mechname":"Owolabi Shotayo","location":"Kpeyegyi","phone":"08068175126"},{"specialty":"Volkswagen","mechname":"Solomon","location":"Dutse","phone":"0806153435"},{"specialty":"Volkswagen","mechname":"Solomon","location":"Dutse","phone":"0806153435"},{"specialty":"Volkswagen","mechname":"Liberty Autos","location":"Dutse","phone":"08059668830"},{"specialty":"Bmw","mechname":"Ibro Automobile Mech ","location":"Dutse","phone":"07032676989"},{"specialty":"Bmw","mechname":"Ibro Automobile Mech ","location":"Dutse","phone":"07032676989"},{"specialty":"Toyota","mechname":"Abbey","location":"lugbe","phone":"08032600857"},{"specialty":"Peugeot","mechname":"Muhammad Baba","location":"kpeyegyi","phone":"08083664048"},{"specialty":"Peugeot","mechname":"ThankGod Chiaha","location":"kpeyegyi","phone":"07063644962"},{"specialty":"Spraying","mechname":"Matthew Oko","location":"kpeyegyi","phone":"08164677005"},{"specialty":"Toyota","mechname":"Taiye","location":"Lugbe","phone":"08078133596"},{"specialty":"Honda","mechname":"Abbey","location":"Lugbe","phone":"08059933267"},{"specialty":"JAPANEESE","mechname":"Johnson","location":"Dutse","phone":"07068238382"},{"specialty":"HONDA","mechname":"SAMUEL","location":"Dutse","phone":"08060326263"},{"specialty":"TOYOTA","mechname":"SAMUEL","location":"DUTSE","phone":"08160326263"},{"specialty":"TOYOTA","mechname":"JOHNSON","location":"DUTSE","phone":"07068238382"},{"specialty":"TOYOTA","mechname":"IBRAHIM","location":"DUTSE","phone":"07060477809"},{"specialty":"","mechname":"","location":"","phone":""},{"specialty":"TOYOTA","mechname":"SAMUEL","location":"DUTSE","phone":"08160326263"},{"specialty":"HONDA","mechname":"JOHNSON","location":"DUTSE","phone":"070-6823-8382"},{"specialty":"HONDA","mechname":"IBRAHIM","location":"DUTSE","phone":"070-6047-7809"},{"specialty":"PEUGEOT","mechname":"ONYEMA","location":"DUTSE","phone":"070-5988-6684,081-3377-1210"},{"specialty":"TOYOTA","mechname":"ERNEST","location":"DUTSE","phone":"080-2603-7592,090-8410-3020"},{"specialty":"HONDA","mechname":"AZEEZ","location":"DUTSE","phone":"080-5918-5274"},{"specialty":"TOYOTA","mechname":"OLIVER","location":"DUTSE","phone":"080-3152-9440"},{"specialty":"Toyota","mechname":"Samuel ","location":"Dutse","phone":"08160326263"},{"specialty":"Honda","mechname":"Johnson","location":"Dutse","phone":"07068238382"},{"specialty":"TOYOTA","mechname":"SAMUEL","location":"KUBWA","phone":"080_6070_6028"},{"specialty":"HONDA","mechname":"AJAYI FESTUS","location":"","phone":"081_3552_9400"},{"specialty":"HONDA","mechname":"AHMED ADEMOLA","location":"KUBWA","phone":"080-3536-8418"},{"specialty":"VOLKSWAGEN","mechname":"BENJAMIN ALEX","location":"KUBWA","phone":"081-3358-2593"},{"specialty":"TOYOTA","mechname":"INNOCENT","location":"KUBWA","phone":"080-3452-8412"},{"specialty":"TOYOTA","mechname":"WISDOM","location":"KUBWA","phone":"070-3551-5147"},{"specialty":"TOYOTA","mechname":"SAMUEL SIMEON","location":"KUBWA","phone":"080-3597-3316"},{"specialty":"TOYOTA","mechname":"MUHAMMED","location":"KUBWA","phone":"080-6549-3706"},{"specialty":"MERCEDES","mechname":"JIM LUCKY","location":"KUBWA","phone":"080-3591-6427"},{"specialty":"TOYOTA","mechname":"AZEEZ","location":"DUTSE","phone":"080-5918-5274"},{"specialty":"JAPANEESE","mechname":"OLAMIDE ABIMBOLA","location":"GWARINMPA","phone":"070-3449-7467"},{"specialty":"TOYOTA","mechname":"GABRIEL","location":"GWARINMPA","phone":"070-6813-4411"},{"specialty":"HONDA","mechname":"YAHAYA","location":"GWARINMPA","phone":"080-7305-0233"},{"specialty":"TOYOTA","mechname":"OLAMIDE","location":"gwarinmpa","phone":"070-3449-7467"},{"specialty":"TOYOTA","mechname":"GABRIEL","location":"gwarinmpa","phone":"070-6813-4411"},{"specialty":"Toyota","mechname":"olamide","location":"gwarinpa","phone":"07034497467"},{"specialty":"HONDA","mechname":"C.C.AGU","location":"GWARINPA","phone":"080-2677-9435"},{"specialty":"HONDA","mechname":"AD","location":"GWARINPA","phone":"080-5112-8202"},{"specialty":"HONDA","mechname":"GABRIEL","location":"GWARINPA","phone":"070-6813-4411"},{"specialty":"TOYOTA","mechname":"YAHAYA","location":"GWARINPA","phone":"080-7305-0233"},{"specialty":"TOYOTA","mechname":"AARON","location":"GWARINPA","phone":"080-6551-6689"},{"specialty":"HONDA","mechname":"CHRISTOPHER","location":"GWARINPA","phone":"090-9174-1616,080-5798-1138"},{"specialty":"TOYOTA","mechname":"ENEJO","location":"GWARINPA","phone":"081-8151-0088"},{"specialty":"HONDA","mechname":"JOSEPH FALOLU","location":"GWARINPA","phone":""}]
+
+$('#txt-search').keyup(function(){
+
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter-records').html('');
+				return;
+			}
+
+            var regex = new RegExp(searchField, "i");
+            var output = '<div class="row">';
+            var count = 1;
+            var line = '<hr>';
+			  $.each(data, function(key, val){
+				if ((val.specialty.search(regex) != -1) || (val.specialty.search(regex) != -1)) {
+				  output += '<div class="col-md-6 jumbotron ">';
+
+				  output += '<div class="col-md-7">';
+          output += '<h4>' + val.location + '</h4>';
+          output += '<h4>' + val.mechname + '</h4>';
+                  //output += '<hr>';
+                  //output += '<hr>'
+				  output += '<h4>' + val.specialty + '</h4>';
+                 // output += '<hr>';
+                 // line;
+                  // output += '<h4>' + val.market + '</h4>';
+                   //output += '<hr>';
+                   //line;
+                   output += '<h4>' + val.phone + '</h4>';
+                   //output += '<hr>';
+                   //line;
+				  output += '</div>';
+				  output += '</div>';
+				  if(count%2 == 0){
+					output += '</div><div class="row">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</div>';
+			  $('#filter-records').html(output);
+        });
+  });
+</script>

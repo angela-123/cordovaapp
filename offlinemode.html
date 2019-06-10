@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>autoparesconnect</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+         #tp1,#tp2,#tp3{
+             border: 0px solid darkblue;
+         }
+
+         #tp2{
+             font-size: 8em;
+             color: darkred;
+             text-align: center;
+         }
+
+         h1,h3{
+
+             color:darkorange;
+             font-style: normal;
+             text-align: center;
+
+         }
+
+         #spares,#mult,#aut,#tv,#don{
+
+             font-weight:normal;
+             font-size:1em;
+
+         }
+
+         #zookie{
+             font-size:1em;
+         }
+         td{
+
+             font-weight:bold;
+             color:black;
+         }
+
+         #rfx{
+             background-color:black;
+         }
+
+         body{
+
+             background:blue;
+             
+         }
+         #gojo{
+             color:white;
+             background:orangered;
+         }
+
+
+         #rfx{
+
+             background: black;
+             border:0px solid orangered;
+             color:white;
+
+         }
+
+         #spares{
+             background:black;
+             color:white;
+             border: 0px;
+         }
+
+         #mult,#don{
+             background: rgb(243, 95, 95);
+             color:wheat;
+             border:0px solid green;
+         }
+
+         #tv,#how{
+             background: darkgoldenrod;
+             color: aliceblue;
+             border: 0px solid burlywood;
+         }
+         
+         #mechs{
+             background: orange;
+             color: white;
+             border: 0px;
+         }
+
+         h3{
+             color:orangered;
+
+         }
+         small{
+             color:rgb(32, 29, 29);
+         }
+         
+         #hal{
+             background:rgb(41, 38, 38);
+             color: white;
+             border: 0px;
+         }
+
+         button{
+
+             width: 100%;
+             border:0px solid silver;
+             font-size:1em;
+         }
+
+         #gcfr{
+
+             color:darkred;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+         }
+
+         #bdf{
+
+            background:orangered;
+         }
+
+         h3{
+             color:blue;
+         }
+
+         #aut{
+
+             background: blue;
+             color: whitesmoke;
+             border:0px solid blue;
+         }
+
+         #nip{
+             width:50%;
+         }
+
+         
+
+        
+
+         #pb{
+
+             background: brown;
+             color: wheat;
+             border: 0px solid brown;
+         }
+
+         #ijx{
+             width: 100%;
+             height: 100%;
+             min-width: 100%;
+             min-height: 100%;
+             background:white;
+             border-radius: 0%;
+         }
+
+         #myCarousel{
+          width:100%;
+         }
+        
+         imgd{
+         animation: imgd-spin infinite 20s linear;
+         height: 10vmin;
+     }
+     @keyframes imgb-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+ .btn{
+    border:0px solid black;
+ }
+
+ h2,h4,h3{
+     text-align:center;
+ }
+  #hs{
+      color:white;
+  }
+
+  #rev{
+      background: lightseagreen;
+      margin-top:10px;
+  }
+ #reg{
+     background:navy;
+     color:white;
+ }
+
+h3{
+    color: white;
+}
+
+#liza{
+
+    background: blue;
+}
+ h2{
+
+     color:darkblue;
+     font-weight:bolder;
+ }
+
+ #liza{
+
+     background:wheat;
+ }
+
+ #multx{
+     background:orangered;
+ }
+
+
+ #jomo{
+     background:white;
+    
+
+ }
+
+ #com{
+     background: yellowgreen;
+     color:whitesmoke;
+     font-size: 1em;
+     font-weight:normal;
+ }
+
+ #how,#mechs,#hal{
+     font-size: 1em;
+ }
+
+ #multu{
+     color:black;
+ }
+
+ body{
+
+     background-color:lightblue;
+     border:1px solid wheat;
+ }
+
+ #donn{
+     background-color:orangered;
+ }
+
+ #tvx{
+
+     background-color:black;
+ }
+         
+        </style>
+      <link href="css/onsenui.css" rel="stylesheet">
+        <link href="css/onsen-css-components.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        ‪<!-- Optional Bootstrap theme -->
+        ‪<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <script src="js/onsenui.min.js"></script>
+        <link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+        <script src="js/bootstrap.min.js"></script>  
+        <script src="js/jquery-1.11.3.js"></script>
+      ‪<script src="js/bootstrap.min.js"></script>
+    </head>
+    <body id = "liza">
+
+           <script>
+
+            $(document).ready(function(){
+
+                $.ajax({
+                    type:'post',
+                    url:'zefect.html',
+                    
+                    success:function(data){
+                        $("#jomo").html(data);
+                    },
+
+                    error:function(){
+                        //$("#ploho").html('No Netwok');
+                        $("#jomo").html('<h3>no network......</h3>');
+                    }
+
+
+                });
+
+
+
+
+                $.ajax({
+                    type:'post',
+                    url:'zefect.html',
+
+                    success:function(data){
+                        $("#ploho").html(data);
+                    },
+
+                    error:function(){
+                        //$("#ploho").html('No Netwok');
+                        $("#ploho").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                    }
+
+
+                });
+
+
+
+               $.ajax({
+                    type:'post',
+                    url:'efect.html',
+                    
+
+                    success:function(data){
+                        $("#zookie").html(data);
+                    },
+
+                    error:function(){
+                        //$("#zookie").html('No Netwok');
+                        $("#zookie").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                    }
+
+
+                });
+
+
+
+                $("#spares").click(function(){
+                    $("#mechs").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    $("#reg").toggle(1000);
+                    $("#mult").toggle(1000);
+                    
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'jinks.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                        }
+                        
+                        
+                    })
+                });
+
+               $("#mechs").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    $("#reg").toggle(1000);
+                    $("#don").toggle(1000);
+                    $("#mult").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'http://dejek.com.ng/autos/mechs.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                        }
+                        
+
+                    })
+                });
+          
+               
+                $("#how").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    $("#reg").toggle(1000);
+                    $("#don").toggle(1000);
+                    $("#mult").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'how.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                        }
+                        
+
+                    })
+                });
+          
+               
+                $("#com").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    $("#reg").toggle(1000);
+                    $("#don").toggle(1000);
+                    $("#mult").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'http://dejek.com.ng/autos/comments.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                        }
+                        
+
+                    })
+                });
+          
+
+
+
+
+
+                $("#hal").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    //$("#hal").toggle(1000);
+                    $("#reg").toggle(1000);
+                    $("#don").toggle(1000);
+                    $("#mult").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'http://dejek.com.ng/autos/hal.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network</h3>');
+                        }
+                        
+
+                    })
+                });
+
+
+
+
+
+
+
+
+
+
+
+$("#mult").click(function(){
+                    $("#spares").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    
+                    $.ajax({
+                        type:"post",
+                        url:'http://dejek.com.ng/autos/multiple.html',
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function(){
+
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                        }
+                        
+
+                    })
+                });
+
+                $("#chiki").mousemove(function(){
+
+                    //$("#zookie").fadeOut(2000);
+                    //$("#leka").fadeOut(2000);
+
+                });
+
+                $("#don").click(function(){
+
+                    $("#mechs").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    $("#spares").toggle(1000);
+                    $("#mult").toggle(1000);
+                    $("#reg").toggle(1000);
+
+                    $.ajax({
+
+                        type:"post",
+                        url:"http://dejek.com.ng/autos/donate.html",
+
+                        success:function(data)
+                        {
+                          $("#larje").html(data);
+                        },
+
+                        error:function()
+                        {
+                            //$("#larje").html('<h1>No Network</h1>');
+                            $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                        }
+                        
+
+
+                    })
+
+                });
+
+
+              $("#tv").click(function(){
+                //$("#mechs").toggle(1000);
+                    //$("#tv").toggle(1000);
+                    //$("#pb").toggle(1000);
+                    //$("#aut").toggle(1000);
+                    //$("#hal").toggle(1000);
+                    //$("#spares").toggle(1000);
+                    //$("#mult").toggle(1000);
+
+
+                $.ajax({
+                    type:"post",
+                    url:"http://dejek.com.ng/autos/tvans.php",
+
+                    success:function(data)
+                    {
+                        $("#larje").html(data);
+                    },
+
+                    error:function()
+                    {
+                        $("#larje").html('<h3>No Network.<img src = "img/nonetss.png" height = 75 width = 75></h3>');
+                    }
+                })
+
+              })
+
+
+              $("#fea").click(function(){
+                $("#mechs").toggle(1000);
+                    $("#tv").toggle(1000);
+                    $("#pb").toggle(1000);
+                    $("#aut").toggle(1000);
+                    $("#hal").toggle(1000);
+                    $("#spares").toggle(1000);
+                    $("#mult").toggle(1000);
+
+                  $.ajax({
+
+                      type:'post',
+                      url:'http://dejek.com.ng/autos/fea.html',
+
+                      success:function(data)
+                      {
+                          $("#liza").html(data);
+                          
+                      },
+
+                      error:function()
+                      {
+                        $("#liza").html('<h3>No Network Check Your Data.<img src = "img/nonetss.png" height = 75 width = 75></h3>'); 
+                      }
+                  })
+              })
+
+
+
+
+
+
+
+
+                $("#rfx").click(function(){
+
+                    location.reload();
+                })
+
+
+            })
+        </script>
+        <div class="container-fluid" id = "ijx">
+            
+
+            <div class="row">
+                <div class = "col-md-4 col-md-offset-4" id = "jomo"></div>
+                
+             <div class = "col-md-4 col-md-offset-4">
+               
+                
+                
+                    <nobr></nobr>
+                    <div style="height: 100%;width:100%; padding: 1px 0 0 0; background:white;" >
+                        <div class="card card--material">
+                          <div class="card__title card--material__title" style="text-align:center; color: darkblue;"></div>
+                          <div class="card__content card--material__content" style = "text-align: center;color: black;">
+                              <div id="zookie" style="background:white;"></div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                    <nobr></nobr>
+                    <button class="button--large--cta" id="how" ripple><span class = "glyphicon glyphicon-user"></span>  How To Use This App</button>
+                    
+                    <a href = "jinks.html" class="button--large--cta"   ripple><span class = "glyphicon glyphicon-signal"></span>  Spare Part Dealers-Single Automobile Search</a>
+                    <a href = "multiples.html" class="button--large--cta" id="multx" ripple><span class = "glyphicon glyphicon-th-list"></span>  Spare Part Dealers-Multiple Automobiles Search</a>
+                
+                    <a href = "mechjson.html" class="button--large--cta" id="mechxs" ripple><span class = "glyphicon glyphicon-user"></span>  Mechanics</a>
+                    
+                    
+                    
+                    
+                    <a href = "tvansjson.html" class="button--large--cta" id="tvx" ripple><span class = "glyphicon glyphicon-road"></span> Tow Vans</a>
+                    <a href = "donate.html" class="button--large--cta" id="donn" ripple><span class = "glyphicon glyphicon-thumbs-up"></span>  Donate</a>
+                    
+                    
+                    <button class="button--large--cta" id="rfx" ripple><span class = "glyphicon glyphicon-home"></span>  Home</button>
+                    
+                        
+                    </div>
+              
+                    
+                      
+                        
+                    
+            </div>
+             
+        </div>
+
+<!-- Review section -->
+<section  class="review-section set-bg" data-setbg="img/bmw.jpg" width ="80" height="80" id = "rev">
+    <div class="container">
+        <div class="review-slider owl-carousel">
+            <div class="review-item text-white">
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>“Leramiz was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
+                <h5>Stacy Mc Neeley</h5>
+                <span>CEP’s Director</span>
+                <div class="clint-pic set-bg" data-setbg="img/cars.png"></div>
+            </div>
+            <div class="review-item text-white">
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>“Leramiz was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
+                <h5>Stacy Mc Neeley</h5>
+                <span>CEP’s Director</span>
+                <div class="clint-pic set-bg" data-setbg="img/review/1.jpg"></div>
+            </div>
+            <div class="review-item text-white">
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>“Leramiz was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
+                <h5>Stacy Mc Neeley</h5>
+                <span>CEP’s Director</span>
+                <div class="clint-pic set-bg" data-setbg="img/review/1.jpg"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Review section end-->
+
+
+
+
+        <div class="clients-section">
+            <div class="container">
+                <div class="clients-slider owl-carousel">
+                    <a href="#">
+                        <img src="img/bmw.jpg" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="img/mercc.jpg" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="img/merk.jpg" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="img/myautos.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="img/toyota.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        
+        <script src="js/owl.carousel.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+    </body>
+</html>

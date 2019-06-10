@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            header{
+
+                background:blueviolet;
+                
+            }
+            h4{
+                color: navy;
+            }
+
+            #pin{
+
+                color:darkblue;
+                font-weight:bold;
+                border:1px red solid;
+                font-size:1.2em;
+            }
+
+            .popi{
+                color:blue;
+                font-family: 'Times New Roman', Times, serif;
+                font-size:1.4em;
+            }
+          .opi{
+
+              color: blue;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+         #klose{
+             background: navy;
+             color: white;
+         }
+            
+        </style>
+        
+    </head>
+    <body>
+       <div class = "container-fluid">
+           <div class = "row">
+               <div class = "col-md-6 col-md-6-offset-2">
+                   <header>
+                       <h3>Why You Need This App</h3>
+                   </header>
+                   <section>
+                      <p id="popi"><span class = "glyphicon glyphicon-grid"></span> 
+                       This app helps you with price intelligence.
+                       Almost in all cases, the middlemen, you use
+                       for spare parts purchases, dont tell you the truth.
+                       knowing the truth is a call away,talk to the dealers
+                       one-on-one.
+                       In case you are a business owner and you have several vehicles,
+                       the information this app brings to you is very valuable.
+                       You may not have the time to go to Zuba or Apo, this app stands in the 
+                       gap for you.
+                       
+                       <section>
+                           <h1 class="opi">How To Use The App</h1>
+                           <p class="popi">
+                               <h3>To Search For The Information You Need</h3> 
+                               You can search for spare dealers, mechanics,and tow van
+                               operators.
+                               Use the provided search box, enter search keywords, keywords
+                               must include alphabets in the information you are looking for.
+                               For example, for spare parts dealers search, if you are looking 
+                               for mercedes spares dealers, type, 'mer' or 'des', for honda type
+                               'hon' or 'da', for toyota type 'toyo' or 'ta'.
+                               The above rules apply to search  for mechanics also.
+                               For tow vans, type the first three letters in the location
+                               you are interested in, for example, for berger type 'ber',
+                               for gwarimpa type 'gwa', for kubwa type 'kub', for airport
+                               road type 'air'.
+                               
+                           </p>
+
+                           
+                       </section>
+                       <p>
+                   </section>
+                    <footer><button id="klose" class = "btn btn-default btn-lg"><span class = "glyphicon glyphicon-signal"></span>  Close</button></footer>
+               </div>
+
+           </div>
+
+
+       </div>
+           
+           <script>
+               $("#klose").click(function(){
+                   location.reload();
+               })
+           </script>
+    </body>
+</html>
